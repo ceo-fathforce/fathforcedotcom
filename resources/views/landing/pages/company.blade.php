@@ -219,42 +219,42 @@
   </section>
   <section class="wrapper bg-soft-primary angled upper-end">
     <div class="container py-14 py-md-16">
-      <div class="row mb-10">
-        <div class="col-xl-10 mx-auto">
-          <div class="row align-items-center counter-wrapper gy-6 text-center">
-            <div class="col-md-3">
-              <img src="landing/assets/img/icons/lineal/check.svg" class="svg-inject icon-svg icon-svg-lg text-primary mb-3" alt="" />
-              <h3 class="counter">31</h3>
-              <p>Completed Projects</p>
+        <div class="row mb-10">
+            <div class="col-xl-10 mx-auto">
+                <div class="row align-items-center counter-wrapper gy-6 text-center">
+                    <div class="col-md-3">
+                        <img src="landing/assets/img/icons/lineal/check.svg" class="svg-inject icon-svg icon-svg-lg text-primary mb-3" alt="" />
+                        <h3 class="counter">{{ $completedProjects }}</h3>
+                        <p>Completed Projects</p>
+                    </div>
+                    <!--/column -->
+                    <div class="col-md-3">
+                        <img src="landing/assets/img/icons/lineal/user.svg" class="svg-inject icon-svg icon-svg-lg text-primary mb-3" alt="" />
+                        <h3 class="counter">{{ $totalProducts }}</h3>
+                        <p>Total Product</p>
+                    </div>
+                    <!--/column -->
+                    <div class="col-md-3">
+                        <img src="landing/assets/img/icons/lineal/briefcase-2.svg" class="svg-inject icon-svg icon-svg-lg text-primary mb-3" alt="" />
+                        <h3 class="counter">{{ $satisfiedCostumers }}</h3>
+                        <p>Satisfied Customers</p>
+                    </div>
+                    <!--/column -->
+                    <div class="col-md-3">
+                        <img src="landing/assets/img/icons/lineal/award-2.svg" class="svg-inject icon-svg icon-svg-lg text-primary mb-3" alt="" />
+                        <h3 class="counter">{{ $employees }}</h3>
+                        <p>Our Employees</p>
+                    </div>
+                    <!--/column -->
+                </div>
+                <!--/.row -->
             </div>
-            <!--/column -->
-            <div class="col-md-3">
-              <img src="landing/assets/img/icons/lineal/user.svg" class="svg-inject icon-svg icon-svg-lg text-primary mb-3" alt="" />
-              <h3 class="counter">18</h3>
-              <p>Total Product</p>
-            </div>
-            <!--/column -->
-            <div class="col-md-3">
-              <img src="landing/assets/img/icons/lineal/briefcase-2.svg" class="svg-inject icon-svg icon-svg-lg text-primary mb-3" alt="" />
-              <h3 class="counter">50</h3>
-              <p>Satisfied Customers</p>
-            </div>
-            <!--/column -->
-            <div class="col-md-3">
-              <img src="landing/assets/img/icons/lineal/award-2.svg" class="svg-inject icon-svg icon-svg-lg text-primary mb-3" alt="" />
-              <h3 class="counter">12</h3>
-              <p>Our Employees</p>
-            </div>
-            <!--/column -->
-          </div>
-          <!--/.row -->
+            <!-- /column -->
         </div>
-        <!-- /column -->
-      </div>
-      <!-- /.row -->
+        <!-- /.row -->
     </div>
     <!-- /.container -->
-  </section>
+</section>
   <!-- /section -->
   <section class="wrapper bg-light angled upper-end lower-end">
     <div class="container pt-18 pb-14 pt-md-19 pb-md-16">

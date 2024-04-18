@@ -19,6 +19,7 @@ use App\Models\Master\Term;
 use App\Models\Master\Testimony;
 use App\Models\Master\Servicelist;
 use App\Models\Master\Superiority;
+use App\Models\CompanyData;
 
 
 use Illuminate\Http\Request;
@@ -177,11 +178,26 @@ class HomeController extends Controller
     
     public function service()
     {
-        return view('landing.pages.service');
+        $companyData = CompanyData::first();
+
+    $completedProjects = $companyData->completed_projects;
+    $totalProducts = $companyData->total_products;
+    $satisfiedCostumers = $companyData->satisfied_costumers;
+    $employees = $companyData->employees;
+
+        return view('landing.pages.service', compact('completedProjects', 'totalProducts', 'satisfiedCostumers', 'employees'));
     }
     public function company()
     {
-        return view('landing.pages.company');
+    $companyData = CompanyData::first();
+
+    $completedProjects = $companyData->completed_projects;
+    $totalProducts = $companyData->total_products;
+    $satisfiedCostumers = $companyData->satisfied_costumers;
+    $employees = $companyData->employees;
+
+        return view('landing.pages.company', compact('completedProjects', 'totalProducts', 'satisfiedCostumers', 'employees'));
+        
     }
     public function partnercompany(Request $request)
     {
@@ -281,6 +297,7 @@ class HomeController extends Controller
         $terms = Term::orderBy('id', 'DESC')->paginate(6);
         return view('landing.pages.term', compact('terms'));
     }
+
 
     // HomeController.php
 

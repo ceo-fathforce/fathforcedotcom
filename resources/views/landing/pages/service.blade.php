@@ -28,23 +28,23 @@
                 <div class="card-body p-9 p-xl-10">
                   <div class="row align-items-center counter-wrapper gy-4 text-center">
                     <div class="col-6 col-lg-3">
-                      <h3 class="counter counter-lg text-white">31</h3>
+                      <h3 class="counter counter-lg text-white">{{ $completedProjects }}</h3>
                       <p>Completed Projects</p>
                     </div>
                     <!--/column -->
                     <div class="col-6 col-lg-3">
-                      <h3 class="counter counter-lg text-white">18</h3>
+                      <h3 class="counter counter-lg text-white">{{ $totalProducts }}</h3>
                       <p>Total Product</p>            
                     </div>
                     <!--/column -->
                     <div class="col-6 col-lg-3">
-                      <h3 class="counter counter-lg text-white">50</h3>
+                      <h3 class="counter counter-lg text-white">{{ $satisfiedCostumers }}</h3>
                       <p>Satisfied Customers</p>
                     </div>
                     <!--/column -->                    
                     <!--/column -->
                     <div class="col-6 col-lg-3">
-                      <h3 class="counter counter-lg text-white">12</h3>
+                      <h3 class="counter counter-lg text-white">{{ $employees }}</h3>
                       <p>Expert Employees</p>
                     </div>
                   </div>
