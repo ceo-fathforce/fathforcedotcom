@@ -264,7 +264,7 @@ class HomeController extends Controller
     }
     public function signin()
     {
-        return view('landing.pages.signin');
+        return view('landing.pages.sign-in');
     }
     public function forgotpassword()
     {

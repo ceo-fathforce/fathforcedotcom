@@ -8,10 +8,10 @@
                     <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
                         <div class="post-header">
                             <div class="post-category text-line">
-                                <a href="#" class="hover" rel="category">{{ $portfolios->name }} </a>
+                                <a href="#" class="hover" rel="category">{{ $portfolio->name }} </a>
                             </div>
                             <!-- /.post-category -->
-                            <h1 class="display-1 mb-3">{{ $portfolios->name }}</h1>
+                            <h1 class="display-1 mb-3">{{ $portfolio->name }}</h1>
                         </div>
                         <!-- /.post-header -->
                     </div>
@@ -37,7 +37,7 @@
                                                 <div class="caption-wrapper p-12">
                                                     <div class="caption bg-white rounded px-4 py-3 ms-auto mt-auto animate__animated animate__slideInDown animate__delay-1s z-index-999"
                                                         style="z-index: 9999">
-                                                        <h5 class="mb-0">{{ $portfolios->name }} Preview</h5>
+                                                        <h5 class="mb-0">{{ $portfolio->name }} Preview</h5>
                                                     </div>
                                                     <!--/.caption -->
                                                 </div>
@@ -59,14 +59,14 @@
                             <h2 class="display-6 mb-4">About Fathforce</h2>
                             <div class="row gx-0">
                                 <div class="col-md-9 text-justify">
-                                    <p>{{ $portfolios->description }}</p>
+                                    <p>{{ $portfolio->description }}</p>
                                 </div>
                                 <!--/column -->
                                 <div class="col-md-2 ms-auto">
                                     <ul class="list-unstyled">
                                         <li>
                                             <h5 class="mb-1">Date</h5>
-                                            <p>{{ $portfolios->created_at->diffForHumans() }}</p>
+                                            <p>{{ $portfolio->created_at->diffForHumans() }}</p>
                                         </li>
                                     </ul>
                                     <a href="/" class="more hover">See Project</a>
@@ -89,7 +89,7 @@
               <div class="row gx-md-6 gy-3 gy-md-0">
                   <div class="col-md-6 align-self-center text-center text-md-start navigation">
                       @if ($prevPortfolio)
-                          <a href="{{ url('portfolios/detail/' . $prevPortfolio->uuid) }}"
+                          <a href="{{ url('portfolio/detail/' . $prevPortfolio->uuid) }}"
                              class="btn btn-soft-ash rounded-pill btn-icon btn-icon-start mb-0 me-1">
                               <i class="uil uil-arrow-left"></i> Prev Post
                           </a>
@@ -98,7 +98,7 @@
       
                   <div class="col-md-6 align-self-center text-center text-md-end navigation">
                       @if ($nextPortfolio)
-                          <a href="{{ url('portfolios/detail/' . $nextPortfolio->uuid) }}"
+                          <a href="{{ url('portfolio/detail/' . $nextPortfolio->uuid) }}"
                              class="btn btn-soft-ash rounded-pill btn-icon btn-icon-end mb-0">
                               Next Post <i class="uil uil-arrow-right"></i>
                           </a>

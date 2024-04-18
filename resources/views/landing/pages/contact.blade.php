@@ -52,13 +52,18 @@
                     <div class="col-xl-10 mx-auto">
                         <div class="row gy-10 gx-lg-8 gx-xl-12">
                             <div class="col-lg-8">
-                                <form class="contact-form needs-validation" method="post" action="./assets/php/contact.php"
-                                    novalidate>
+                                @if(session('success'))
+                                        <div class="alert alert-success">
+                                            {{ session('success') }}
+                                        </div>
+                                @endif  
+                                <form class="contact-form" method="post" action="{{ route('contact.us.store') }}">
+                                    @csrf <!-- Menambahkan token CSRF -->
                                     <div class="messages"></div>
                                     <div class="row gx-4">
                                         <div class="col-md-6">
                                             <div class="form-floating mb-4">
-                                                <input id="form_name" type="text" name="name" class="form-control"
+                                                <input id="form_name" type="text" name="first" class="form-control"
                                                     placeholder="Jane" required>
                                                 <label for="form_name">First Name *</label>
                                                 <div class="valid-feedback"> Looks good! </div>
@@ -68,7 +73,7 @@
                                         <!-- /column -->
                                         <div class="col-md-6">
                                             <div class="form-floating mb-4">
-                                                <input id="form_lastname" type="text" name="surname" class="form-control"
+                                                <input id="form_lastname" type="text" name="last" class="form-control"
                                                     placeholder="Doe" required>
                                                 <label for="form_lastname">Last Name *</label>
                                                 <div class="valid-feedback"> Looks good! </div>
@@ -123,7 +128,7 @@
                                             <input type="submit" class="btn btn-primary rounded-pill btn-send mb-3"
                                                 value="Send message">
                                             <p class="text-muted"><strong>*</strong> These fields are required.</p>
-                                        </div>
+                                        </div>                                  
                                         <!-- /column -->
                                     </div>
                                     <!-- /.row -->
@@ -180,7 +185,7 @@
         <section class="wrapper bg-light">
             <div class="map">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2782.782681064874!2d107.75471679918428!3d-6.915915810643513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68dd0024be8805%3A0x1bd8e4e8d6476db4!2sFatchforce%20Sofware%20house!5e0!3m2!1sid!2sid!4v1705561224333!5m2!1sid!2sid"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.54838984054564!2d107.75755145559506!3d-6.91757238033024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68dd000858d54d%3A0xfe86447201a591bc!2sPT.%20Fath%20Synergy%20Group!5e0!3m2!1sid!2sid!4v1713411062827!5m2!1sid!2sid"
                     style="width:100%; height: 500px; border:0" allowfullscreen></iframe>
             </div>
             <!-- /.map -->

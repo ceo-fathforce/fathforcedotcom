@@ -69,12 +69,14 @@
                 <ul class="navbar-nav flex-row align-items-center ms-auto">
                     <li class="nav-item dropdown language-select text-uppercase">
                         <a class="nav-link dropdown-item dropdown-toggle" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">En</a>
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{strtoupper(Lang::locale())}}
+                        </a>
                         <ul class="dropdown-menu">
-                            <li class="nav-item"><a class="dropdown-item" href="#">En</a></li>
-                            <li class="nav-item"><a class="dropdown-item" href="#">ID</a></li>
+                            <li class="nav-item"><a class="dropdown-item" href="lang/en">EN</a></li>
+                            <li class="nav-item"><a class="dropdown-item" href="lang/id">ID</a></li>
                         </ul>
-                    </li>
+                    </li>                    
                     <li class="nav-item d-none d-md-block">
                         <a href="/contact" class="btn btn-sm btn-primary rounded-pill">Contact</a>
                     </li>

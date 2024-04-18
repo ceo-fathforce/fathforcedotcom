@@ -3,7 +3,9 @@
 use App\Http\Controllers\Auth\OAuthController;
 use App\Http\Controllers\Config\MailTemplateController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SignedMediaController;
+use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +38,13 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('/contact');
 Route::get('/signin', [HomeController::class, 'signin'])->name('/signin');
 Route::get('/forgot-password', [HomeController::class, 'forgotpassword'])->name('/forgotpassword');
 
+if (file_exists(app_path('Http/Controllers/LocalizationController.php')))
+{
+    Route::get('lang/{locale}', [App\Http\Controllers\LocalizationController::class , 'lang']);
+}
+
+Route::get('/contact-us', [ContactController::class, 'index']);
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.us.store');
 
 Route::get('/app/config/mail-template/{mail_template}', [MailTemplateController::class, 'detail'])
     ->name('config.mail-template.detail')

@@ -58,6 +58,7 @@ use App\Http\Controllers\Utility\BackupController;
 use App\Http\Controllers\Utility\TodoActionController;
 use App\Http\Controllers\Utility\TodoController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 
 // User Routes
 Route::prefix('users')->group(function () {
@@ -172,6 +173,10 @@ Route::prefix('utility')->group(function () {
 
 Route::post('/images/upload', [ImageController::class, 'upload'])->name('image.upload');
 
+
+Route::get('/contact-us', [ContactController::class, 'index']);
+Route::post('/contact-us', [ContactController::class, 'store'])->name('contact.us.store');
+
 Route::get('tags', [TagController::class, 'index'])->name('tags.index');
 
 Route::resource('medias', MediaController::class)->only(['store', 'destroy']);
@@ -219,3 +224,5 @@ Route::prefix('landing')->group(function () {
     Route::post('pagecategories/import', PageCategoryImportController::class);
     Route::apiResource('pagecategories', PageCategoryController::class);
 });
+
+
