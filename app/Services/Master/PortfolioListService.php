@@ -37,6 +37,12 @@ class PortfolioListService extends ListGenerator
                 'sortable' => false,
                 'visibility' => false,
             ],
+            [
+                'key' => 'url',
+                'label' => trans('master.portfolio.props.url'),
+                'sortable' => false,
+                'visibility' => false,
+            ],
         ];
 
         if (request()->ajax()) {
@@ -50,7 +56,7 @@ class PortfolioListService extends ListGenerator
     {
         return Portfolio::query()
             ->filter([
-                'App\QueryFilters\LikeMatch:search,name,description',
+                'App\QueryFilters\LikeMatch:search,name,description,url',
             ]);
     }
 

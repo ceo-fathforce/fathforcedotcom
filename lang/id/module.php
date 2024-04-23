@@ -11,6 +11,7 @@ return [
     'media' => 'Media',
     'option' => 'Opsi',
     'project' => 'Projek',
+    'companydata' => 'Data Perusahaan',
     'product' => 'Produk',
     'productcategory' => 'Produk Kategori',
     'post' => 'Post',

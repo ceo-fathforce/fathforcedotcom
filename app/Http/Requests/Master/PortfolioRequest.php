@@ -26,6 +26,7 @@ class PortfolioRequest extends FormRequest
         return [
             'name' => 'nullable',
             'description' => 'nullable',
+            'url' => 'nullable'
         ];
     }
 }

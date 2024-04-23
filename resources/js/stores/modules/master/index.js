@@ -19,6 +19,8 @@ import term from "@stores/modules/master/term";
 import servicelist from "@stores/modules/master/servicelist";
 import testimony from "@stores/modules/master/testimony";
 import superiority from "@stores/modules/master/superiority";
+import companydata from "@stores/modules/master/companydata";
+import socialmedia from "@stores/modules/master/socialmedia";
 
 const initialState = () => ({
   initURL: "/app/master",
@@ -42,6 +44,8 @@ const master = {
     term,
     testimony,
     superiority,
+    companydata,
+    socialmedia,
   },
   mutations: {
     ...mutations,

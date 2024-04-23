@@ -393,5 +393,5 @@
             });
         }
     </script>
-    @include('landing.partials.footer')
+    @include('landing.partials.footer2')
 @endsection

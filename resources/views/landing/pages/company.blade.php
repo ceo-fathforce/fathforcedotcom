@@ -282,7 +282,7 @@
             </div>
             <div>
               <h5 class="mb-1">Phone</h5>
-              <p>+62 851 61721727</p>
+              <p class="mb-0"><a href="https://api.whatsapp.com/send?phone=6285161721727&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="link-body">+62 851 61721727</a></p>
             </div>
           </div>
           <div class="d-flex flex-row">

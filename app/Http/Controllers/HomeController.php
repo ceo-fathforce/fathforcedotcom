@@ -19,9 +19,8 @@ use App\Models\Master\Term;
 use App\Models\Master\Testimony;
 use App\Models\Master\Servicelist;
 use App\Models\Master\Superiority;
-use App\Models\CompanyData;
-
-
+use App\Models\Master\CompanyData;
+use App\Models\Master\Socialmedia;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -178,22 +177,36 @@ class HomeController extends Controller
     
     public function service()
     {
-        $companyData = CompanyData::first();
+    $companyData = Companydata::first();
 
-    $completedProjects = $companyData->completed_projects;
-    $totalProducts = $companyData->total_products;
-    $satisfiedCostumers = $companyData->satisfied_costumers;
+    $completedProjects = $companyData->completedprojects;
+    $totalProducts = $companyData->totalproducts;
+    $satisfiedCostumers = $companyData->satisfiedcostumers;
     $employees = $companyData->employees;
 
         return view('landing.pages.service', compact('completedProjects', 'totalProducts', 'satisfiedCostumers', 'employees'));
     }
+
+    public function footer()
+    {
+    $socialmedia = Socialmedia::first();
+
+    $facebook = $socialmedia->facebook;
+    $instagram = $socialmedia->instagram;
+    $youtube = $socialmedia->youtube;
+    $twitter = $socialmedia->twitter;
+    $telegram = $socialmedia->telegram;
+
+        return view('landing.partials.footer2', compact('facebook', 'instagram', 'youtube', 'twitter', 'telegram'));
+    }
+    
     public function company()
     {
-    $companyData = CompanyData::first();
+    $companyData = Companydata::first();
 
-    $completedProjects = $companyData->completed_projects;
-    $totalProducts = $companyData->total_products;
-    $satisfiedCostumers = $companyData->satisfied_costumers;
+    $completedProjects = $companyData->completedprojects;
+    $totalProducts = $companyData->totalproducts;
+    $satisfiedCostumers = $companyData->satisfiedcostumers;
     $employees = $companyData->employees;
 
         return view('landing.pages.company', compact('completedProjects', 'totalProducts', 'satisfiedCostumers', 'employees'));

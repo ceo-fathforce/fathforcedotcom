@@ -17,6 +17,27 @@ return [
 
         ],
     ],
+    'companydata' => [
+        'companydata' => 'Company Data',
+        'companydatas' => 'Company Datas',
+        'props' => [
+            'completedprojects' => 'Completed Project',
+            'totalproducts' => 'Total Product',
+            'satisfiedcostumers' => 'Satisfied Costumers',
+            'employees' => 'Total Employees',
+        ],
+    ],
+    'socialmedia' => [
+        'socialmedia' => 'URL Social Media',
+        'socialmedias' => 'URL Social Media',
+        'props' => [
+            'facebook' => 'Facebook',
+            'instagram' => 'Instagram',
+            'youtube' => 'Youtube',
+            'twitter' => 'Twitter',
+            'telegram' => 'Telegram',
+        ],
+    ],
     'portfoliocategory' => [
         'portfoliocategory' => 'Portfolio Category',
         'props' => [
@@ -29,6 +50,7 @@ return [
         'props' => [
             'name' => 'Name',
             'description' => 'Description',
+            'url' => 'Url',
         ],
     ],
     'partnercompany' => [

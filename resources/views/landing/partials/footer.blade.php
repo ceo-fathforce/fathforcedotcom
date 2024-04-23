@@ -13,9 +13,9 @@
           <img class="mb-4" src="landing/assets/img/logo-light.png" srcset="landing/assets/img/logo-light@2x.png 2x" alt="" />
           <p class="mb-4">© 2023 Sandbox. <br class="d-none d-lg-block" />All rights reserved.</p>
           <nav class="nav social social-white">            
-            <a href="https://www.instagram.com/fathforce/"><i class="uil uil-instagram"></i></a>
-            <a href="https://www.youtube.com/@fathforce"><i class="uil uil-youtube"></i></a>
-            <a href="https://t.me/fathforce"><i class="uil uil-telegram"></i></a>
+            <a href="{{ $socialmedia->instagram }}"><i class="uil uil-instagram"></i></a>
+            <a href="{{ $socialmedia->youtube }}"><i class="uil uil-youtube"></i></a>
+            <a href="{{ $socialmedia->telegram }}"><i class="uil uil-telegram"></i></a>
           </nav>
           <!-- /.social -->
         </div>
@@ -26,7 +26,8 @@
         <div class="widget">
           <h4 class="widget-title text-white mb-3">Get in Touch</h4>
           <address class="pe-xl-15 pe-xxl-17">Cileunyi Wetan Village Bandung Regency, West Java</address>
-          <a href="mailto:#">info@email.com</a><br /> 00 (123) 456 78 90
+          <a href="mailto:hi@gmail.com">hi@email.com</a><br />
+          <a href="https://api.whatsapp.com/send?phone=6285161721727&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202.">+62 851-6172-1727</a>
         </div>
         <!-- /.widget -->
       </div>

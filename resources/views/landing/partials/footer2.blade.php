@@ -6,10 +6,16 @@
         <div class="widget">
           <img class="mb-4" src="{{asset('landing/assets/img/logo-light.png')}}" srcset="landing/assets/img/logo-light@2x.png 2x" alt="" />
           <p class="mb-4">© 2024 Fathforce. <br class="d-none d-lg-block" />All rights reserved.</p>
-          <nav class="nav social social-white">            
-            <a href="https://www.instagram.com/fathforce/"><i class="uil uil-instagram"></i></a>
-            <a href="https://www.youtube.com/@fathforce"><i class="uil uil-youtube"></i></a>
-            <a href="https://t.me/fathforce"><i class="uil uil-telegram"></i></a>
+          <nav class="nav social social-white">
+            @php
+                $footerData = App\Models\Master\Socialmedia::orderBy('created_at', 'asc')->first();
+            @endphp
+
+            @if ($footerData)            
+            <a href="{{ $footerData->instagram }}"><i class="uil uil-instagram"></i></a>
+            <a href="{{ $footerData->youtube }}"><i class="uil uil-youtube"></i></a>
+            <a href="{{ $footerData->telegram }}"><i class="uil uil-telegram"></i></a>
+            @endif
           </nav>
           <!-- /.social -->
         </div>
@@ -20,7 +26,8 @@
         <div class="widget">
           <h4 class="widget-title text-white mb-3">Get in Touch</h4>
           <address class="pe-xl-15 pe-xxl-17">Cileunyi Wetan Village Bandung Regency, West Java</address>
-          <a href="mailto:#">hi@fathforce.com</a><br /> +62 851-6172-1727
+          <a href="mailto:hi@gmail.com">hi@email.com</a><br />
+          <a href="https://api.whatsapp.com/send?phone=6285161721727&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202.">+62 851-6172-1727</a>
         </div>
         <!-- /.widget -->
       </div>

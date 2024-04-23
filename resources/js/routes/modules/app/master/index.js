@@ -11,6 +11,8 @@ import servicelist from "./servicelist";
 import term from "./term";
 import testimony from "./testimony";
 import superiority from "./superiority";
+import companydata from "./companydata";
+import socialmedia from "./socialmedia";
 
 export default [
   {
@@ -25,6 +27,6 @@ export default [
     component: {
       template: "<router-view></router-view>",
     },
-    children: [...productcategory, ...product, ...portfoliocategory, ...portfolio, ...gallerycategory, ...gallery, ...partnercompany, ...partnerschool, ...faq, ...servicelist, ...term, ...testimony, ...superiority],
+    children: [...productcategory, ...product, ...portfoliocategory, ...portfolio, ...gallerycategory, ...gallery, ...partnercompany, ...partnerschool, ...faq, ...servicelist, ...term, ...testimony, ...superiority, ...companydata, ...socialmedia],
   },
 ];

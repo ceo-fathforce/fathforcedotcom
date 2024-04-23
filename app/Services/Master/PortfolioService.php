@@ -34,6 +34,7 @@ class PortfolioService
             'slug' => strtolower(str_replace(' ','-',$request->name)),
             'portfolio_category_id' => $request->portfoliocategory,
             'description' => $request->description,
+            'url' => $request->url,
         ];
     }
 

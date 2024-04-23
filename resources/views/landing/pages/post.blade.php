@@ -105,11 +105,11 @@
                                 Indonesia. We build systems with in-depth analysis and have built many web and mobile
                                 applications. We prioritize quality and stability in the systems we build.</p>
                             <nav class="nav social">
-                                <a href="#"><i class="uil uil-twitter"></i></a>
-                                <a href="#"><i class="uil uil-facebook-f"></i></a>
-                                <a href="#"><i class="uil uil-dribbble"></i></a>
-                                <a href="#"><i class="uil uil-instagram"></i></a>
-                                <a href="#"><i class="uil uil-youtube"></i></a>
+                                <a href="https://t.me/fathforce"><i class="uil uil-telegram"></i></a>
+                                {{-- <a href=""><i class="uil uil-facebook-f"></i></a>
+                                <a href="#"><i class="uil uil-dribbble"></i></a> --}}
+                                <a href="https://www.instagram.com/fathforce/"><i class="uil uil-instagram"></i></a>
+                                <a href="https://www.youtube.com/@fathforce"><i class="uil uil-youtube"></i></a>
                             </nav>
                             <!-- /.social -->
                         </div>

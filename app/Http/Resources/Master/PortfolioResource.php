@@ -25,6 +25,7 @@ class PortfolioResource extends JsonResource
             'portfoliocategorytitle' => $portfoliocategory->title,
             'name' => $this->name,
             'description' => $this->description,
+            'url' => $this->url,
             'media_token' => $this->getMeta('media_token'),
             'media' => MediaResource::collection($this->whenLoaded('media')),
             'is_createtable' => $this->isEditable() && Auth::user()->can('portfolio:create'),

@@ -15,6 +15,10 @@
         <BaseTextarea v-model="form.description" name="description" :label="$trans('master.portfolio.props.description')"
           v-model:error="formErrors.description" />
       </div>
+      <div class="col-span-4 sm:col-span-2">
+        <BaseInput v-model="form.url" name="url" :label="$trans('master.portfolio.props.url')"
+          v-model:error="formErrors.url" />
+      </div>
     </div>
     <div class="grid grid-cols-1">
       <div class="col">
@@ -43,6 +47,7 @@ const initForm = {
   name: "",
   portfoliocategory: "",
   description: "",
+  url: "",
   media: [],
   mediaToken: "",
   mediaHash: "",

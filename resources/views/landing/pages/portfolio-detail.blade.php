@@ -1,7 +1,7 @@
 @extends('landing.app')
 @section('content')
+  @include('landing.partials.header')
     <div class="content-wrapper">
-        @include('landing.partials.header')
         <section class="wrapper bg-light">
             <div class="container pt-10 pb-9 pt-md-14 pb-md-11 text-center">
                 <div class="row">
@@ -56,7 +56,7 @@
                     <!-- /.post-slider -->
                     <div class="row">
                         <div class="col-lg-10 offset-lg-1">
-                            <h2 class="display-6 mb-4">About Fathforce</h2>
+                            <h2 class="display-6 mb-4">About {{ $portfolio->name }}</h2>
                             <div class="row gx-0">
                                 <div class="col-md-9 text-justify">
                                     <p>{{ $portfolio->description }}</p>
@@ -69,7 +69,7 @@
                                             <p>{{ $portfolio->created_at->diffForHumans() }}</p>
                                         </li>
                                     </ul>
-                                    <a href="/" class="more hover">See Project</a>
+                                    <a href="{{ $portfolio->url }}" class="more hover">See Project</a>
                                 </div>
                                 <!--/column -->
                             </div>
@@ -111,5 +111,6 @@
       </section>
       
     </div>
+    
     @include('landing.partials.footer2')
 @endsection

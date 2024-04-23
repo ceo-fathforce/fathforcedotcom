@@ -22,6 +22,10 @@
             <div v-html="portfolio.description"></div>
           </BaseDataView>
 
+          <BaseDataView :label="$trans('master.portfolio.props.url')">
+            <div v-html="portfolio.url"></div>
+          </BaseDataView>
+
           <BaseDataView :label="$trans('master.portfoliocategory.portfoliocategory')">
             <div v-html="portfolio.portfoliocategorytitle"></div>
           </BaseDataView>

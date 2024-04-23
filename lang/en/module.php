@@ -11,6 +11,7 @@ return [
     'media' => 'Media',
     'option' => 'Option',
     'project' => 'Project',
+    'companydata' => 'Companydata',
     'product' => 'Product',
     'productcategory' => 'Product Category',
     'post' => 'Post',

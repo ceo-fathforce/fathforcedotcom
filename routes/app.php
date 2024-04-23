@@ -43,6 +43,8 @@ use App\Http\Controllers\OptionImportController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectImportController;
+use App\Http\Controllers\Master\CompanydataController;
+use App\Http\Controllers\Master\CompanydataImportController;
 use App\Http\Controllers\Master\ProductCategoryController;
 use App\Http\Controllers\Master\ProductCategoryImportController;
 use App\Http\Controllers\Master\PortfolioCategoryController;
@@ -59,6 +61,8 @@ use App\Http\Controllers\Utility\TodoActionController;
 use App\Http\Controllers\Utility\TodoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Master\SocialmediaController;
+use App\Http\Controllers\Master\SocialmediaImportController;
 
 // User Routes
 Route::prefix('users')->group(function () {
@@ -103,6 +107,7 @@ Route::get('dashboard/stat', [DashboardController::class, 'stat'])->name('dashbo
 Route::get('dashboard/agenda', [DashboardController::class, 'agenda'])->name('dashboard.agenda');
 Route::get('dashboard/chart', [DashboardController::class, 'chart'])->name('dashboard.chart');
 Route::get('dashboard/project', [DashboardController::class, 'project'])->name('dashboard.project');
+Route::get('dashboard/companydata', [DashboardController::class, 'companydata'])->name('dashboard.companydata');
 
 // Any key search
 Route::get('search', Search::class)
@@ -185,6 +190,10 @@ Route::post('projects/import', ProjectImportController::class);
 Route::apiResource('projects', ProjectController::class);
 
 Route::prefix('master')->group(function () {
+    Route::post('companydatas/import', CompanydataImportController::class);
+    Route::apiResource('companydatas', CompanydataController::class);
+    Route::post('socialmedias/import', SocialmediaImportController::class);
+    Route::apiResource('socialmedias', SocialmediaController::class);
     Route::post('products/import', ProductImportController::class);
     Route::apiResource('products', ProductController::class);
     Route::post('productcategories/import', ProductCategoryImportController::class);
