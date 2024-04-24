@@ -38,9 +38,9 @@
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#"
                                 data-bs-toggle="dropdown">Partner</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="dropdown-item" href="partnerschool">School Partner</a>
+                                <li class="nav-item"><a class="dropdown-item" href="{{ route('/partnerschool') }}">School Partner</a>
                                 </li>
-                                <li class="nav-item"><a class="dropdown-item" href="partnercompany">Company Partner</a>
+                                <li class="nav-item"><a class="dropdown-item" href="{{ route('/partnercompany') }}">Company Partner</a>
                                 </li>
                             </ul>
                         </li>

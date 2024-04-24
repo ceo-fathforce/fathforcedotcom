@@ -27,8 +27,8 @@ Route::get('/portfolio', [HomeController::class, 'portfolios'])->name('/portfoli
 Route::get('/portfolios/detail/{uuid}', [HomeController::class, 'portfoliodetail'])->name('portfoliodetail');
 Route::get('/product', [HomeController::class, 'products'])->name('/product');
 Route::get('/products/detail/{uuid}', [HomeController::class, 'productdetail'])->name('productdetail');
-Route::get('/partnercompany', [HomeController::class, 'partnercompany'])->name('partnercompany');
-Route::get('/partnerschool', [HomeController::class, 'partnerschool'])->name('partnerschool');
+Route::get('/partnercompany', [HomeController::class, 'partnercompany'])->name('/partnercompany');
+Route::get('/partnerschool', [HomeController::class, 'partnerschool'])->name('/partnerschool');
 Route::get('/gallery', [HomeController::class, 'gallery'])->name('/gallery');
 Route::get('/posts', [HomeController::class, 'posts'])->name('posts');
 Route::get('/posts/detail/{uuid}', [HomeController::class, 'postdetail'])->name('postdetail');
