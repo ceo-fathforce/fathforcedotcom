@@ -376,11 +376,18 @@
             <h4 class="widget-title mb-3">About Us</h4>
             <p>PT. Fath Synergy Group is a web and mobile software development company based in Bandung, Indonesia. We build systems with in-depth analysis and have built many web and mobile applications. We prioritize quality and stability in the systems we build.</p>
             <nav class="nav social">
-              <a href="https://t.me/fathforce"><i class="uil uil-telegram"></i></a>
+          @php
+              $footerData = App\Models\Master\Socialmedia::orderBy('created_at', 'asc')->first();
+          @endphp
+          @if ($footerData)
+          <nav class="nav social">
+              <a href={{ $footerData->telegram }}><i class="uil uil-telegram"></i></a>
               {{-- <a href=""><i class="uil uil-facebook-f"></i></a>
               <a href="#"><i class="uil uil-dribbble"></i></a> --}}
-              <a href="https://www.instagram.com/fathforce/"><i class="uil uil-instagram"></i></a>
-              <a href="https://www.youtube.com/@fathforce"><i class="uil uil-youtube"></i></a>
+              <a href={{ $footerData->instagram }}><i class="uil uil-instagram"></i></a>
+              <a href={{ $footerData->youtube }}><i class="uil uil-youtube"></i></a>
+          </nav>
+          @endif
               {{-- <a href="#"><i class="uil uil-twitter"></i></a>
               <a href="#"><i class="uil uil-facebook-f"></i></a>
               <a href="#"><i class="uil uil-dribbble"></i></a>
