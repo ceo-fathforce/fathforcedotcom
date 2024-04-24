@@ -14,8 +14,8 @@
             <!-- /.post-category -->
             <h1 class="display-1 mb-4 text-white">{{$posts->name}}</h1>
             <ul class="post-meta text-white">
-              <li class="post-date"><i class="uil uil-calendar-alt"></i><span>5 Jul 2022</span></li>
-              <li class="post-author"><i class="uil uil-user"></i><a href="#" class="text-reset"><span>By Hana</span></a></li>
+              <li class="post-date"><i class="uil uil-calendar-alt"></i><span>{{ $posts->created_at->format('Y-m-d') }}</span></li>
+              <li class="post-author"><i class="uil uil-user"></i><a href="#" class="text-reset"><span>{{ $posts->user->username }}</span></a></li>
               <li class="post-comments"><i class="uil uil-comment"></i><a href="#" class="text-reset">3<span> Comments</span></a></li>
               <li class="post-likes"><i class="uil uil-heart-alt"></i><a href="#" class="text-reset">3<span> Likes</span></a></li>
               <li class="post-view"><i class="uil uil-eye"></i><a href="#" class="text-reset">7<span> Views</span></a></li>
@@ -48,9 +48,7 @@
                     <div class="post-footer d-md-flex flex-md-row justify-content-md-between align-items-center mt-8">
                       <div>
                         <ul class="list-unstyled tag-list mb-0">
-                          <li><a href="#" class="btn btn-soft-ash btn-sm rounded-pill mb-0">Still Life</a></li>
-                          <li><a href="#" class="btn btn-soft-ash btn-sm rounded-pill mb-0">Urban</a></li>
-                          <li><a href="#" class="btn btn-soft-ash btn-sm rounded-pill mb-0">Nature</a></li>
+                          <li><a href="#" class="btn btn-soft-ash btn-sm rounded-pill mb-0">{{ $posts->postcategory['title'] }}</a></li>
                         </ul>
                       </div>
                       <div class="mb-0 mb-md-2">
@@ -58,9 +56,9 @@
                           <button class="btn btn-sm btn-red rounded-pill btn-icon btn-icon-start dropdown-toggle mb-0 me-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="uil uil-share-alt"></i> Share </button>
                           <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#"><i class="uil uil-twitter"></i>Twitter</a>
-                            <a class="dropdown-item" href="#"><i class="uil uil-facebook-f"></i>Facebook</a>
-                            <a class="dropdown-item" href="#"><i class="uil uil-linkedin"></i>Linkedin</a>
+                            <a class="dropdown-item" href={{ url("https://twitter.com/intent/tweet?url=http://fathforcedotcom.test/posts/detail/" . $posts->uuid) }}><i class="uil uil-twitter"></i> Twitter</a>
+                            <a class="dropdown-item" href={{ url("https://www.facebook.com/sharer/sharer.php?u=http://fathforcedotcom.test/posts/detail/" . $posts->uuid) }}><i class="uil uil-facebook-f"></i> Facebook</a>
+                            <a class="dropdown-item" href={{ url("https://www.linkedin.com/sharing/share-offsite/?url=http://fathforcedotcom.test/posts/detail/" . $posts->uuid) }}><i class="uil uil-linkedin"></i> Linkedin</a>
                           </div>
                           <!--/.dropdown-menu -->
                         </div>
@@ -75,10 +73,10 @@
                 <hr />
                 <div class="author-info d-md-flex align-items-center mb-3">
                   <div class="d-flex align-items-center">
-                    <figure class="user-avatar"><img class="rounded-circle" alt="" src="landing/assets/img/avatars/u5.jpg" /></figure>
+                    <figure class="user-avatar"><img class="rounded-circle" alt="" src="/landing/assets/img/avatars/u5.jpg" /></figure>
                     <div>
-                      <h6><a href="#" class="link-dark">Nikolas Brooten</a></h6>
-                      <span class="post-meta fs-15">Sales Manager</span>
+                      <h6><a href="#" class="link-dark">{{ $posts->user->username }}</a></h6>
+                      <span class="post-meta fs-15">{{ $posts->user->job }}</span>
                     </div>
                   </div>
                   <div class="mt-3 mt-md-0 ms-auto">
@@ -86,13 +84,13 @@
                   </div>
                 </div>
                 <!-- /.author-info -->
-                <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac. Maecenas faucibus mollis interdum.</p>
+                <p>{{ $posts->user->me }}</p>
                 <nav class="nav social">
-                  <a href="#"><i class="uil uil-twitter"></i></a>
-                  <a href="#"><i class="uil uil-facebook-f"></i></a>
-                  <a href="#"><i class="uil uil-dribbble"></i></a>
-                  <a href="#"><i class="uil uil-instagram"></i></a>
-                  <a href="#"><i class="uil uil-youtube"></i></a>
+                  <a href={{ $posts->user->twitter }}><i class="uil uil-twitter"></i></a>
+                  <a href="{{ $posts->user->facebook }}"><i class="uil uil-facebook-f"></i></a>
+                  {{-- <a href="#"><i class="uil uil-dribbble"></i></a> --}}
+                  <a href="{{ $posts->user->instagram }}"><i class="uil uil-instagram"></i></a>
+                  <a href="{{ $posts->user->youtube }}"><i class="uil uil-youtube"></i></a>
                 </nav>
                 <!-- /.social -->
                 <hr />
@@ -117,7 +115,7 @@
                           <!-- /.post-header -->
                           <div class="post-footer">
                             <ul class="post-meta mb-0">
-                              <li class="post-date"><i class="uil uil-calendar-alt"></i><span>14 Apr 2022</span></li>
+                              <li class="post-date"><i class="uil uil-calendar-alt"></i><span>13 Apr 2022</span></li>
                               <li class="post-comments"><a href="#"><i class="uil uil-comment"></i>4</a></li>
                             </ul>
                             <!-- /.post-meta -->
@@ -129,7 +127,7 @@
                       <!--/.swiper-slide -->
                       <div class="swiper-slide">
                         <article>
-                          <figure class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img src="landing/assets/img/photos/example5.png" alt="" /></a>
+                          <figure class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img src="/landing/assets/img/photos/example5.png" alt="" /></a>
                             <figcaption>
                               <h5 class="from-top mb-0">Read More</h5>
                             </figcaption>
@@ -156,7 +154,7 @@
                       <!--/.swiper-slide -->
                       <div class="swiper-slide">
                         <article>
-                          <figure class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img src="landing/assets/img/photos/example5.png" alt="" /></a>
+                          <figure class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img src="/landing/assets/img/photos/example5.png" alt="" /></a>
                             <figcaption>
                               <h5 class="from-top mb-0">Read More</h5>
                             </figcaption>
@@ -183,7 +181,7 @@
                       <!--/.swiper-slide -->
                       <div class="swiper-slide">
                         <article>
-                          <figure class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img src="landing/assets/img/photos/example5.png" alt="" /></a>
+                          <figure class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img src="/landing/assets/img/photos/example5.png" alt="" /></a>
                             <figcaption>
                               <h5 class="from-top mb-0">Read More</h5>
                             </figcaption>
@@ -220,7 +218,7 @@
                     <li class="comment">
                       <div class="comment-header d-md-flex align-items-center">
                         <div class="d-flex align-items-center">
-                          <figure class="user-avatar"><img class="rounded-circle" alt="" src="landing/assets/img/avatars/example5.png" /></figure>
+                          <figure class="user-avatar"><img class="rounded-circle" alt="" src="/landing/assets/img/avatars/example5.png" /></figure>
                           <div>
                             <h6 class="comment-author"><a href="#" class="link-dark">Connor Gibson</a></h6>
                             <ul class="post-meta">
@@ -242,7 +240,7 @@
                     <li class="comment">
                       <div class="comment-header d-md-flex align-items-center">
                         <div class="d-flex align-items-center">
-                          <figure class="user-avatar"><img class="rounded-circle" alt="" src="landing/assets/img/avatars/example5.png" /></figure>
+                          <figure class="user-avatar"><img class="rounded-circle" alt="" src="/landing/assets/img/avatars/u2.jpg" /></figure>
                           <div>
                             <h6 class="comment-author"><a href="#" class="link-dark">Nikolas Brooten</a></h6>
                             <ul class="post-meta">
@@ -264,7 +262,7 @@
                         <li class="comment">
                           <div class="comment-header d-md-flex align-items-center">
                             <div class="d-flex align-items-center">
-                              <figure class="user-avatar"><img class="rounded-circle" alt="" src="landing/assets/img/avatars/example5.png" /></figure>
+                              <figure class="user-avatar"><img class="rounded-circle" alt="" src="/landing/assets/img/avatars/example5.png" /></figure>
                               <div>
                                 <h6 class="comment-author"><a href="#" class="link-dark">Pearce Frye</a></h6>
                                 <ul class="post-meta">
@@ -286,7 +284,7 @@
                             <li class="comment">
                               <div class="comment-header d-md-flex align-items-center">
                                 <div class="d-flex align-items-center">
-                                  <figure class="user-avatar"><img class="rounded-circle" alt="" src="landing/assets/img/avatars/u2.jpg" /></figure>
+                                  <figure class="user-avatar"><img class="rounded-circle" alt="" src="/landing/assets/img/avatars/u2.jpg" /></figure>
                                   <div>
                                     <h6 class="comment-author"><a href="#" class="link-dark">Nikolas Brooten</a></h6>
                                     <ul class="post-meta">
@@ -312,7 +310,7 @@
                     <li class="comment">
                       <div class="comment-header d-md-flex align-items-center">
                         <div class="d-flex align-items-center">
-                          <figure class="user-avatar"><img class="rounded-circle" alt="" src="landing/assets/img/avatars/u4.jpg" /></figure>
+                          <figure class="user-avatar"><img class="rounded-circle" alt="" src="/landing/assets/img/avatars/u4.jpg" /></figure>
                           <div>
                             <h6 class="comment-author"><a href="#" class="link-dark">Lou Bloxham</a></h6>
                             <ul class="post-meta">
@@ -401,7 +399,7 @@
             <h4 class="widget-title mb-3">Popular Posts</h4>
             <ul class="image-list">
               <li>
-                <figure class="rounded"><a href="/blogpost"><img src="landing/assets/img/photos/example3.png" alt="" /></a></figure>
+                <figure class="rounded"><a href="/blogpost"><img src="/landing/assets/img/photos/example3.png" alt="" /></a></figure>
                 <div class="post-content">
                   <h6 class="mb-2"> <a class="link-dark" href="/blogpost">The Evolving Landscape of Technology: Shaping Our Future</a> </h6>
                   <ul class="post-meta">
@@ -418,14 +416,10 @@
           <div class="widget">
             <h4 class="widget-title mb-3">Categories</h4>
             <ul class="unordered-list bullet-primary text-reset">
-              <li><a href="#">Teamwork (21)</a></li>
-              <li><a href="#">Ideas (19)</a></li>
-              <li><a href="#">Workspace (16)</a></li>
-              <li><a href="#">Coding (7)</a></li>
-              <li><a href="#">Meeting (12)</a></li>
-              <li><a href="#">Business Tips (14)</a></li>
+                <li><a class="filter-item" data-filter=".{{ $posts->postcategory['title'] }}">{{ $posts->postcategory['title'] }}</a>
+                </li>
             </ul>
-          </div>
+        </div>
           <!-- /.widget -->
         </aside>
         <!-- /column .sidebar -->

@@ -25,6 +25,8 @@ return new class extends Migration
             $table->json('preference')->nullable();
             $table->rememberToken();
             $table->json('pending_update')->nullable();
+            $table->string('job')->nullable();
+            $table->string('me')->nullable();
             $table->json('meta')->nullable();
             $table->timestamps();
         });

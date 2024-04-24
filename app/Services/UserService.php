@@ -39,6 +39,12 @@ class UserService
             'name' => $request->name,
             'email' => $request->email,
             'username' => $request->username,
+            'job' => $request->job,
+            'me' => $request->me,
+            'twitter' => $request->twitter,
+            'facebook' => $request->facebook,
+            'instagram' => $request->instagram,
+            'youtube' => $request->youtube,
         ];
 
         if (! $user) {

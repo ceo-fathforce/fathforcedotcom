@@ -11,6 +11,13 @@ return [
         'password' => 'Password',
         'password_confirmation' => 'Confirm Password',
         'force_change_password' => 'Force Change Password',
+        'status' => 'Status',
+        'job' => 'Job',
+        'me' => 'About Me',
+        'twitter' => 'Twitter',
+        'facebook' => 'Facebook',
+        'instagram' => 'Instagram',
+        'youtube' => 'Youtube',
     ],
     'status' => 'Status',
     'statuses' => [

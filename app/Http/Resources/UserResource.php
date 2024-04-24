@@ -21,6 +21,12 @@ class UserResource extends JsonResource
             'username' => $this->username,
             'email' => $this->email,
             'status' => $this->status,
+            'job' => $this->job,
+            'me' => $this->me,
+            'twitter' => $this->twitter,
+            'facebook' => $this->facebook,
+            'instagram' => $this->instagram,
+            'youtube' => $this->youtube,
             'status_detail' => UserStatus::getDetail($this->status),
             'roles' => RoleResource::collection($this->whenLoaded('roles')),
             'profile' => [

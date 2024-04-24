@@ -11,6 +11,12 @@ return [
         'password' => 'Password',
         'password_confirmation' => 'Konfirmasi Password',
         'force_change_password' => 'Paksa Ganti Password',
+        'job' => 'Pekerjaan',
+        'me' => 'Tentang Saya',
+        'twitter' => 'Twitter',
+        'facebook' => 'Facebook',
+        'instagram' => 'Instagram',
+        'youtube' => 'Youtube',
     ],
     'status' => 'Status',
     'statuses' => [

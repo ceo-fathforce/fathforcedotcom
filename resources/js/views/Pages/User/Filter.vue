@@ -36,13 +36,23 @@
                 />
             </div>
             <div class="col-span-3 sm:col-span-1">
+                <BaseInput
+                    type="text"
+                    v-model="form.job"
+                    name="job"
+                    :label="
+                        $trans('user.props.job')
+                    "
+                />
+            </div>
+            <div class="col-span-3 sm:col-span-1">
                 <BaseSelect
                     v-model="form.status"
                     name="status"
                     :label="
                         $trans('user.status')
                     "
-                    :options="state.statuses"
+                    :options="state.status"
                 />
             </div>
         </div>

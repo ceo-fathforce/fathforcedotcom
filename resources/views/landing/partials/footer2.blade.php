@@ -4,7 +4,7 @@
     <div class="row gy-6 gy-lg-0">
       <div class="col-md-4 col-lg-3">
         <div class="widget">
-          <img class="mb-4" src="{{asset('landing/assets/img/logo-light.png')}}" srcset="landing/assets/img/logo-light@2x.png 2x" alt="" />
+          <img class="mb-4" src="{{asset('/landing/assets/img/logo-light.png')}}" srcset="/landing/assets/img/logo-light@2x.png 2x" alt="" />
           <p class="mb-4">© 2024 Fathforce. <br class="d-none d-lg-block" />All rights reserved.</p>
           <nav class="nav social social-white">
             @php

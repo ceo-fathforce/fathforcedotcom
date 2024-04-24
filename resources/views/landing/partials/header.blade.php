@@ -1,21 +1,21 @@
 <header class="wrapper bg-light">
-    <link rel="shortcut icon" href="landing/assets/img/fathlogo.png">
-    <link rel="stylesheet" href="landing/assets/css/plugins.css">
-    <link rel="stylesheet" href="landing/assets/css/style.css">
-    <link rel="stylesheet" href="landing/assets/css/colors/sky.css">
-    <link rel="preload" href="landing/assets/css/fonts/urbanist.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="shortcut icon" href="/landing/assets/img/fathlogo.png">
+    <link rel="stylesheet" href="/landing/assets/css/plugins.css">
+    <link rel="stylesheet" href="/landing/assets/css/style.css">
+    <link rel="stylesheet" href="/landing/assets/css/colors/sky.css">
+    <link rel="preload" href="/landing/assets/css/fonts/urbanist.css" as="style" onload="this.rel='stylesheet'">
     <nav class="navbar navbar-expand-lg center-nav transparent navbar-light">
         <div class="container flex-lg-row flex-nowrap align-items-center">
             <div class="navbar-brand w-100">
                 <a href="/">
-                    <img src="{{asset('landing/assets/img/vector.png')}}" srcset="landing/assets/img/vector.png 2x" alt=""
+                    <img src="{{asset('/landing/assets/img/vector.png')}}" srcset="/landing/assets/img/vector.png 2x" alt=""
                         width="180px" />
                 </a>
             </div>
             <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
                 <div class="offcanvas-header d-lg-none">
-                    <a href="landing/index.html"><img src="{{asset('landing/assets/img/logo-light.png')}}"
-                            srcset="landing/assets/img/logo-light@2x.png 2x" alt="" /></a>
+                    <a href="/landing/index.html"><img src="{{asset('/landing/assets/img/logo-light.png')}}"
+                            srcset="/landing/assets/img/logo-light@2x.png 2x" alt="" /></a>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                         aria-label="Close"></button>
                 </div>

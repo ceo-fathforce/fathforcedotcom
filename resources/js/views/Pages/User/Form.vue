@@ -44,6 +44,72 @@
                 />
             </div>
             <div class="col-span-3 sm:col-span-1">
+                <BaseInput
+                    type="text"
+                    v-model="form.job"
+                    name="job"
+                    :label="
+                        $trans('user.props.job')
+                    "
+                    v-model:error="formErrors.job"
+                />
+            </div>
+            <div class="col-span-3 sm:col-span-1">
+                <BaseInput
+                    type="text"
+                    v-model="form.me"
+                    name="me"
+                    :label="
+                        $trans('user.props.me')
+                    "
+                    v-model:error="formErrors.me"
+                />
+            </div>
+            <div class="col-span-3 sm:col-span-1">
+                <BaseInput
+                    type="text"
+                    v-model="form.twitter"
+                    name="twitter"
+                    :label="
+                        $trans('user.props.twitter')
+                    "
+                    v-model:error="formErrors.twitter"
+                />
+            </div>
+            <div class="col-span-3 sm:col-span-1">
+                <BaseInput
+                    type="text"
+                    v-model="form.facebook"
+                    name="facebook"
+                    :label="
+                        $trans('user.props.facebook')
+                    "
+                    v-model:error="formErrors.facebook"
+                />
+            </div>
+            <div class="col-span-3 sm:col-span-1">
+                <BaseInput
+                    type="text"
+                    v-model="form.instagram"
+                    name="instagram"
+                    :label="
+                        $trans('user.props.instagram')
+                    "
+                    v-model:error="formErrors.instagram"
+                />
+            </div>
+            <div class="col-span-3 sm:col-span-1">
+                <BaseInput
+                    type="text"
+                    v-model="form.youtube"
+                    name="youtube"
+                    :label="
+                        $trans('user.props.youtube')
+                    "
+                    v-model:error="formErrors.youtube"
+                />
+            </div>
+            <div class="col-span-3 sm:col-span-1">
                 <BaseSelect
                     v-model="form.roles"
                     name="roles"
@@ -114,6 +180,12 @@ const initForm = {
     email: "",
     username: "",
     password: "",
+    job: "",
+    me: "",
+    twitter: "",
+    facebook: "",
+    instagram: "",
+    youtube: "",
     passwordConfirmation: "",
     forceChangePassword: true
 };
@@ -130,6 +202,12 @@ const setForm = (data) => {
         roles: data.roles.map(item => item.uuid),
         email: data.email,
         username: data.username,
+        job: data.job,
+        me: data.me,
+        twitter: data.twitter,
+        facebook: data.facebook,
+        instagram: data.instagram,
+        youtube: data.youtube,
         forceChangePassword: false
     });
 

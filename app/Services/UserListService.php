@@ -11,7 +11,7 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class UserListService extends ListGenerator
 {
-    protected $allowedSorts = ['created_at', 'name', 'email', 'username'];
+    protected $allowedSorts = ['created_at', 'name', 'email', 'username','job','me','twitter','facebook','instagram','youtube'];
 
     protected $defaultSort = 'name';
 
@@ -55,6 +55,18 @@ class UserListService extends ListGenerator
                 'visibility' => true,
             ],
             [
+                'key' => 'job',
+                'label' => trans('user.props.job'),
+                'sortable' => true,
+                'visibility' => true,
+            ],
+            [
+                'key' => 'me',
+                'label' => trans('user.props.me'),
+                'sortable' => true,
+                'visibility' => true,
+            ],
+            [
                 'key' => 'createdAt',
                 'label' => trans('general.created_at'),
                 'sortable' => true,
@@ -79,6 +91,7 @@ class UserListService extends ListGenerator
                 'App\QueryFilters\LikeMatch:email',
                 'App\QueryFilters\LikeMatch:username',
                 'App\QueryFilters\ExactMatch:status',
+                'App\QueryFilters\LikeMatch:job',
                 'App\QueryFilters\UuidMatch',
             ]);
     }

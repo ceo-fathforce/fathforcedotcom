@@ -46,6 +46,12 @@
                     <DataCell name="status">
                         <BaseBadge :label="user.statusDetail.label" :design="user.statusDetail.color" />
                     </DataCell>
+                    <DataCell name="job">
+                        {{ user.job }}
+                    </DataCell>
+                    <DataCell name="me">
+                        {{ user.me }}
+                    </DataCell>
                     <DataCell name="createdAt">
                         {{ user.createdAt.formatted }}
                     </DataCell>
