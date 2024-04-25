@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\OAuthController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Config\MailTemplateController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
@@ -45,6 +46,12 @@ if (file_exists(app_path('Http/Controllers/LocalizationController.php')))
 
 Route::get('/contact-us', [ContactController::class, 'index']);
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.us.store');
+
+// routes/web.php
+
+// Route::get('/posts/detail/{uuid}', [CommentController::class, 'index'])->name('posts.detail');
+// Route::post('/posts/detail/{uuid}', [CommentController::class, 'store'])->name('comments.store');
+
 
 Route::get('/app/config/mail-template/{mail_template}', [MailTemplateController::class, 'detail'])
     ->name('config.mail-template.detail')

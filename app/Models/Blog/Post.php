@@ -10,6 +10,7 @@ use App\Contracts\Mediable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Blog\PostCategory;
+use App\Models\Comment;
 use App\Models\User;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -64,5 +65,9 @@ class Post extends Model implements Mediable
         // }
 
         return true;
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

@@ -32,14 +32,14 @@ class UserRequest extends FormRequest
         $rules = [
             'name' => 'required|min:2|max:100',
             'email' => ['required', 'email', 'max:50', Rule::unique('users')->ignore($uuid)],
-            'username' => ['required', Rule::unique('users')->ignore($uuid), new Username],
+            'username' => 'required',
             'password' => ['required', 'same:password_confirmation'],
             'job' => 'required|min:2|max:100',
             'me' => 'required|min:2|max:100',
-            'twitter' => 'required|url',
-            'facebook' => 'required|url',
-            'instagram' => 'required|url',
-            'youtube' => 'required|url',
+            'twitter' => 'url',
+            'facebook' => 'url',
+            'instagram' => 'url',
+            'youtube' => 'url',
             'roles' => 'array',
         ];
 
