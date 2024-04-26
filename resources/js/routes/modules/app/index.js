@@ -6,6 +6,7 @@ import project from "./project";
 import master from "./master";
 import landing from "./landing";
 import blog from "./blog";
+import customize from "./customize"
 
 export default [
   ...dashboard,
@@ -16,4 +17,5 @@ export default [
   ...landing,
   ...utility,
   ...config,
+  ...customize,
 ];

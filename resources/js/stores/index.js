@@ -12,6 +12,7 @@ import utility from "@stores/modules/utility";
 import project from "@stores/modules/project";
 import master from "@stores/modules/master";
 import blog from "@stores/modules/blog";
+import customize from "@stores/modules/customize";
 import landing from "@stores/modules/landing";
 import option from "@stores/modules/option";
 import tag from "@stores/modules/tag";
@@ -37,6 +38,7 @@ const store = createStore({
     option,
     tag,
     moduleImport,
+    customize,
   },
   state: initialState,
   mutations: {},

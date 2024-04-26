@@ -98,6 +98,10 @@
                 <div class="swiper-container blog grid-view mb-16" data-margin="30" data-dots="true" data-items-md="2" data-items-xs="1">
                   <div class="swiper">
                     <div class="swiper-wrapper">
+                      @php
+                        $latestPosts = App\Models\Blog\Post::latest()->take(5)->get();
+                      @endphp
+                      @foreach($latestPosts as $posts)
                       <div class="swiper-slide">
                         <article>
                           <figure class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img src="{{App\Models\Media::getimageweb($posts->meta['media_token'])}}" alt="" /></a>
@@ -115,8 +119,7 @@
                           <!-- /.post-header -->
                           <div class="post-footer">
                             <ul class="post-meta mb-0">
-                              <li class="post-date"><i class="uil uil-calendar-alt"></i><span>13 Apr 2022</span></li>
-                              <li class="post-comments"><a href="#"><i class="uil uil-comment"></i>4</a></li>
+                              <li class="post-date"><i class="uil uil-calendar-alt"></i><span>{{ $posts->created_at->format('Y-m-d') }}</span></li>
                             </ul>
                             <!-- /.post-meta -->
                           </div>
@@ -124,87 +127,7 @@
                         </article>
                         <!-- /article -->
                       </div>
-                      <!--/.swiper-slide -->
-                      <div class="swiper-slide">
-                        <article>
-                          <figure class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img src="/landing/assets/img/photos/example5.png" alt="" /></a>
-                            <figcaption>
-                              <h5 class="from-top mb-0">Read More</h5>
-                            </figcaption>
-                          </figure>
-                          <div class="post-header">
-                            <div class="post-category text-line">
-                              <a href="#" class="hover" rel="category">Workspace</a>
-                            </div>
-                            <!-- /.post-category -->
-                            <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="./blog-post.html">Nullam id dolor elit id nibh</a></h2>
-                          </div>
-                          <!-- /.post-header -->
-                          <div class="post-footer">
-                            <ul class="post-meta mb-0">
-                              <li class="post-date"><i class="uil uil-calendar-alt"></i><span>29 Mar 2022</span></li>
-                              <li class="post-comments"><a href="#"><i class="uil uil-comment"></i>3</a></li>
-                            </ul>
-                            <!-- /.post-meta -->
-                          </div>
-                          <!-- /.post-footer -->
-                        </article>
-                        <!-- /article -->
-                      </div>
-                      <!--/.swiper-slide -->
-                      <div class="swiper-slide">
-                        <article>
-                          <figure class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img src="/landing/assets/img/photos/example5.png" alt="" /></a>
-                            <figcaption>
-                              <h5 class="from-top mb-0">Read More</h5>
-                            </figcaption>
-                          </figure>
-                          <div class="post-header">
-                            <div class="post-category text-line">
-                              <a href="#" class="hover" rel="category">Meeting</a>
-                            </div>
-                            <!-- /.post-category -->
-                            <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="./blog-post.html">Ultricies fusce porta elit</a></h2>
-                          </div>
-                          <!-- /.post-header -->
-                          <div class="post-footer">
-                            <ul class="post-meta mb-0">
-                              <li class="post-date"><i class="uil uil-calendar-alt"></i><span>26 Feb 2022</span></li>
-                              <li class="post-comments"><a href="#"><i class="uil uil-comment"></i>6</a></li>
-                            </ul>
-                            <!-- /.post-meta -->
-                          </div>
-                          <!-- /.post-footer -->
-                        </article>
-                        <!-- /article -->
-                      </div>
-                      <!--/.swiper-slide -->
-                      <div class="swiper-slide">
-                        <article>
-                          <figure class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img src="/landing/assets/img/photos/example5.png" alt="" /></a>
-                            <figcaption>
-                              <h5 class="from-top mb-0">Read More</h5>
-                            </figcaption>
-                          </figure>
-                          <div class="post-header">
-                            <div class="post-category text-line">
-                              <a href="#" class="hover" rel="category">Business Tips</a>
-                            </div>
-                            <!-- /.post-category -->
-                            <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="./blog-post.html">Morbi leo risus porta eget</a></h2>
-                          </div>
-                          <div class="post-footer">
-                            <ul class="post-meta mb-0">
-                              <li class="post-date"><i class="uil uil-calendar-alt"></i><span>7 Jan 2022</span></li>
-                              <li class="post-comments"><a href="#"><i class="uil uil-comment"></i>2</a></li>
-                            </ul>
-                            <!-- /.post-meta -->
-                          </div>
-                          <!-- /.post-footer -->
-                        </article>
-                        <!-- /article -->
-                      </div>
-                      <!--/.swiper-slide -->
+                      @endforeach
                     </div>
                     <!--/.swiper-wrapper -->
                   </div>
@@ -212,7 +135,7 @@
                 </div>
                 <!-- /.swiper-container -->
                 <hr />
-                <div id="comments">
+                {{-- <div id="comments">
                   <h3 class="mb-6">5 Comments</h3>
                   <ol id="singlecomments" class="commentlist">
                     <li class="comment">
@@ -233,14 +156,14 @@
                           <a href="#" class="btn btn-soft-ash btn-sm rounded-pill btn-icon btn-icon-start mb-0"><i class="uil uil-comments"></i> Reply</a>
                         </div> --}}
                         <!-- /div -->
-                      </div>
+                      {{-- </div> --}}
                       <!-- /.comment-header -->
-                      <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis integer posuere erat ante.</p>
+                      {{-- <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis integer posuere erat ante.</p>
                     </li>
                   </ol>
-                </div>
+                </div> --}}
                 <!-- /#comments -->
-                <hr />
+                {{-- <hr />
                 <h3 class="mb-3">Would you like to share your thoughts?</h3>
                 <p class="mb-7">Your email address will not be published. Required fields are marked *</p>
                 @if(session('success'))
@@ -251,7 +174,7 @@
                 <form class="comment-form" method="post" action="">
                   @csrf
                   {{-- <input type="hidden" name="uuid" value="{{ $post->uuid }}"> --}}
-                  <div class="form-floating mb-4">
+                  {{-- <div class="form-floating mb-4">
                     <input type="text" class="form-control" placeholder="Name*" id="name" name="name">
                     <label for="name">Name *</label>
                   </div>
@@ -264,7 +187,7 @@
                     <label for="comment">Comment *</label>
                   </div>
                   <button type="submit" class="btn btn-primary rounded-pill mb-0">Submit</button>
-                </form>
+                </form> --}}
                 <!-- /.comment-form -->
               </div>
               <!-- /.card-body -->
@@ -311,19 +234,25 @@
           </div>
           <!-- /.widget -->
           <div class="widget">
+            @php
+              $latestPopularPosts = App\Models\Blog\Post::whereHas('postcategory', function($query) {
+              $query->where('title', 'popular');
+                  })->latest()->take(5)->get();
+            @endphp
             <h4 class="widget-title mb-3">Popular Posts</h4>
             <ul class="image-list">
+              @foreach ($latestPopularPosts as $posts)
               <li>
-                <figure class="rounded"><a href="/blogpost"><img src="/landing/assets/img/photos/example3.png" alt="" /></a></figure>
+                <figure class="rounded"><a href="/{{ url('posts/detail/' . $posts->uuid) }}"><img src="{{App\Models\Media::getimageweb($posts->meta['media_token'])}}" alt="" /></a></figure>
                 <div class="post-content">
-                  <h6 class="mb-2"> <a class="link-dark" href="/blogpost">The Evolving Landscape of Technology: Shaping Our Future</a> </h6>
+                  <h6 class="mb-2"> <a class="link-dark" href="/{{ url('posts/detail/' . $posts->uuid) }}">{{ $posts->name }}</a> </h6>
                   <ul class="post-meta">
-                    <li class="post-date"><i class="uil uil-calendar-alt"></i><span>12 Jan 2024</span></li>
-                    <li class="post-comments"><a href="#"><i class="uil uil-comment"></i>3</a></li>
+                    <li class="post-date"><i class="uil uil-calendar-alt"></i><span>{{ $posts->created_at->format('Y-m-d') }}</span></li>
                   </ul>
                   <!-- /.post-meta -->
                 </div>
-              </li>
+              </li>       
+              @endforeach
             </ul>
             <!-- /.image-list -->
           </div>

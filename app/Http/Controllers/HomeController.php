@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog\Post;
 use App\Models\Blog\PostCategory;
+use App\Models\Customize\Landingtext;
 use App\Models\Master\Gallery;
 use App\Models\Master\GalleryCategory;
 use App\Models\Master\PartnerCompany;
@@ -251,6 +252,17 @@ class HomeController extends Controller
         $posts = $postsQuery->paginate(5);
 
         return view('landing.pages.post', compact('posts', 'postcategories', 'selectedPostcategoryId'));
+    }
+
+    public function landingtexts(Request $request)
+    {
+    // Query pertama untuk mengambil data untuk bagian pertama
+    $firstData = Landingtext::where('created_at', 'asc')->first();
+
+    // Query kedua untuk mengambil data untuk bagian kedua
+    $secondData = Landingtext::where('created_at', 'asc')->skip(1)->first();
+
+    return view('landing.pages.home', compact('firstData', 'secondData'));
     }
 
     public function postdetail($uuid, Request $request)

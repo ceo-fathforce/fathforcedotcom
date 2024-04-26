@@ -3,6 +3,11 @@
 @section('content')
     <div class="content-wrapper">
         @include('landing.partials.header')
+        @php
+            $one = App\Models\Customize\Landingtext::orderBy('created_at')->first();
+            $two = App\Models\Customize\Landingtext::orderBy('created_at')->skip(1)->first();
+            $three = App\Models\Customize\Landingtext::orderBy('created_at')->skip(2)->first();
+        @endphp
         <section class="wrapper bg-light">
             <div class="container pt-10 pt-md-14 pb-14 pb-md-16 text-center">
                 <div class="row gx-lg-8 gx-xl-12 gy-10 gy-xl-0 mb-14 align-items-center">
@@ -12,9 +17,9 @@
                     </div>
                     <!-- /column -->
                     <div class="col-md-10 offset-md-1 offset-lg-0 col-lg-5 text-center text-lg-start">
-                        <h1 class="display-1 fs-54 mb-5 mx-md-n5 mx-lg-0 mt-7">A digital agency <br
-                                class="d-md-none">specializing on <br class="d-md-none"><span
-                                class="rotator-fade text-primary">web development, mobile development, cloud vps, internet
+                        <h1 class="display-1 fs-54 mb-5 mx-md-n5 mx-lg-0 mt-7"> {{ $one->name }} <br
+                                class="d-md-none">{{ $two->name }} <br class="d-md-none"><span
+                                class="rotator-fade text-primary">{{ $three->name }}, mobile development, cloud vps, internet
                                 of things arduino, it consultant, game development</span></h1>
                         <p class="lead fs-lg mb-7">We support your school and your business achieve the vision that has been
                             set. Go ahead now with us..</p>
