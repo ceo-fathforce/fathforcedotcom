@@ -7,6 +7,7 @@ import { mutations, actions, getters } from "@stores/global";
 const toast = useToast();
 
 import landingtext from "@stores/modules/customize/landingtext";
+import landingimage from "@stores/modules/customize/landingimage";
 
 const initialState = () => ({
   initURL: "/app/customize",
@@ -18,6 +19,7 @@ const customize = {
   state: initialState,
   modules: {
     landingtext,
+    landingimage,
   },
   mutations: {
     ...mutations,

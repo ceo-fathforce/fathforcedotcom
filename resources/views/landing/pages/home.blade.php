@@ -4,31 +4,29 @@
     <div class="content-wrapper">
         @include('landing.partials.header')
         @php
-            $one = App\Models\Customize\Landingtext::orderBy('created_at')->first();
-            $two = App\Models\Customize\Landingtext::orderBy('created_at')->skip(1)->first();
-            $three = App\Models\Customize\Landingtext::orderBy('created_at')->skip(2)->first();
+            $landingtextNames = App\Models\Customize\Landingtext::orderBy('created_at')->pluck('name')->take(32);
+            
+            $landingImages = App\Models\Customize\Landingimage::orderBy('created_at', 'asc')->take(20)->get()  
+
         @endphp
         <section class="wrapper bg-light">
             <div class="container pt-10 pt-md-14 pb-14 pb-md-16 text-center">
                 <div class="row gx-lg-8 gx-xl-12 gy-10 gy-xl-0 mb-14 align-items-center">
                     <div class="col-lg-7 order-lg-2">
-                        <figure><img class="img-auto" src="landing/assets/img/illustrations/i21.png"
-                                srcset="landing/assets/img/illustrations/i21@2x.png 2x" alt="" /></figure>
+                        <figure><img class="img-auto" src="{{ App\Models\Media::getimageweb($landingImages[0]->meta->['media_token']) }}" alt="" /></figure>
                     </div>
                     <!-- /column -->
                     <div class="col-md-10 offset-md-1 offset-lg-0 col-lg-5 text-center text-lg-start">
-                        <h1 class="display-1 fs-54 mb-5 mx-md-n5 mx-lg-0 mt-7"> {{ $one->name }} <br
-                                class="d-md-none">{{ $two->name }} <br class="d-md-none"><span
-                                class="rotator-fade text-primary">{{ $three->name }}, mobile development, cloud vps, internet
-                                of things arduino, it consultant, game development</span></h1>
-                        <p class="lead fs-lg mb-7">We support your school and your business achieve the vision that has been
-                            set. Go ahead now with us..</p>
-                        <span><a class="btn btn-lg btn-primary rounded-pill me-2" href="/company">About Us</a></span>
+                        <h1 class="display-1 fs-54 mb-5 mx-md-n5 mx-lg-0 mt-7"> {{ $landingtextNames[0] }} <br
+                                class="d-md-none">{{ $landingtextNames[1] }} <br class="d-md-none"><span
+                                class="rotator-fade text-primary">{{ $landingtextNames[2] }}, {{ $landingtextNames[3] }}, {{ $landingtextNames[4] }}, {{ $landingtextNames[5] }}, {{ $landingtextNames[6] }}, {{ $landingtextNames[7] }}</span></h1>
+                        <p class="lead fs-lg mb-7">{{ $landingtextNames[8] }}<p>
+                        <span><a class="btn btn-lg btn-primary rounded-pill me-2" href="/company">{{ $landingtextNames[9] }}</a></span>
                     </div>
                     <!-- /column -->
                 </div>
                 <!-- /.row -->
-                <p class="text-center mb-8">Trusted by all our partners</p>
+                <p class="text-center mb-8">{{ $landingtextNames[10] }}</p>
                 <div
                     class="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-4 gy-10 mb-2 d-flex align-items-center justify-content-center">
                     @foreach ($partnercompanys as $item)
@@ -58,9 +56,8 @@
             <div class="container pt-12 pt-lg-8 pb-14 pb-md-17">
                 <div class="row text-center">
                     <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-                        <h2 class="fs-16 text-uppercase text-primary mb-3">What We Do?</h2>
-                        <h3 class="display-3 mb-10 px-xxl-10">The service we offer is specifically designed to meet your
-                            needs.</h3>
+                        <h2 class="fs-16 text-uppercase text-primary mb-3">{{ $landingtextNames[11] }}</h2>
+                        <h3 class="display-3 mb-10 px-xxl-10">{{ $landingtextNames[12] }}</h3>
                     </div>
                     <!-- /column -->
                 </div>
@@ -73,7 +70,7 @@
                                      alt="" /></figure>
                             <h3>{{ $item->name }}</h3>
                             <p class="mb-2">{{ $item->description }}</p>
-                            <a href="/service" class="more hover">Learn More</a>
+                            <a href="/service" class="more hover">{{ $landingtextNames[13] }}</a>
                         </div>
                         <!--/.px -->
                     </div>
@@ -91,13 +88,12 @@
             <div class="container pb-14 pb-md-16">
                 <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
                     <div class="col-lg-7">
-                        <figure><img class="img-auto" src="landing/assets/img/illustrations/i22.png"
-                                srcset="landing/assets/img/illustrations/i22@2x.png 2x" alt="" /></figure>
+                        <figure><img class="img-auto" src="{{ App\Models\Media::getimageweb($landingImages[1]->meta['media_token']) }}" alt="" /></figure>
                     </div>
                     <!--/column -->
                     <div class="col-lg-5">
-                        <h2 class="fs-15 text-uppercase text-primary mb-3">Why Choose Us?</h2>
-                        <h3 class="display-3 mb-7">We bring solutions to make life easier.</h3>
+                        <h2 class="fs-15 text-uppercase text-primary mb-3">{{ $landingtextNames[14] }}</h2>
+                        <h3 class="display-3 mb-7">{{ $landingtextNames[15] }}</h3>
                         @foreach ($superioritys as $item)
                             <div class="accordion accordion-wrapper" id="accordionExample{{ $item->id }}">
                                 <div class="card plain accordion-item">
@@ -144,7 +140,7 @@
                     <div class="col-lg-6">
                         <div class="row gx-md-5 gy-5">
                             <div class="col-md-6">
-                                <figure class="rounded"><img src="landing/assets/img/photos/crew.jpg" alt="">
+                                <figure class="rounded"><img src="{{ App\Models\Media::getimageweb($landingImages[2]->meta['media_token']) }}" alt="">
                                 </figure>
                             </div>
                             <!--/column -->
@@ -163,20 +159,18 @@
                     </div>
                     <!--/column -->
                     <div class="col-lg-6">
-                        <h2 class="fs-16 text-uppercase text-primary mb-3">Who Are We?</h2>
-                        <h3 class="display-3 mb-5">WE ARE PT. FATH SYNERGY GROUP</h3>
-                        <p class="mb-6">PT. Fath Synergy Group is a web and mobile software development company based in
-                            Bandung, Indonesia. We build systems with in-depth analysis and have built many web and mobile
-                            applications. We prioritize quality and stability in the systems we build.</p>
+                        <h2 class="fs-16 text-uppercase text-primary mb-3">{{ $landingtextNames[16] }}</h2>
+                        <h3 class="display-3 mb-5">{{ $landingtextNames[17] }}</h3>
+                        <p class="mb-6">{{ $landingtextNames[18] }}</p>
                         <div class="row align-items-center counter-wrapper gy-6">
                             <div class="col-md-6">
-                                <h3 class="counter counter-lg mb-1">99.7%</h3>
-                                <h5 class="mb-0">Customer Satisfaction</h5>
+                                <h3 class="counter counter-lg mb-1">{{ $landingtextNames[19] }}</h3>
+                                <h5 class="mb-0">{{ $landingtextNames[20] }}</h5>
                             </div>
                             <!--/column -->
                             <div class="col-md-6">
-                                <h3 class="counter counter-lg mb-1">12x</h3>
-                                <h5 class="mb-0">Revenue Growth</h5>
+                                <h3 class="counter counter-lg mb-1">{{ $landingtextNames[21] }}</h3>
+                                <h5 class="mb-0">{{ $landingtextNames[22] }}</h5>
                             </div>
                             <!--/column -->
                         </div>
@@ -184,7 +178,7 @@
                     </div>
                     <!--/column -->
                 </div>
-                <div class="text-center"><a href="/company" class="btn btn-primary">More Details</a></div>
+                <div class="text-center"><a href="/company" class="btn btn-primary">{{ $landingtextNames[23] }}</a></div>
             </div>
             <!-- /.container -->
         </section>
@@ -242,9 +236,8 @@
             <div class="container pt-12 pt-lg-8 pb-14 pb-md-17">
                 <div class="row text-center">
                     <div class="col-lg-8 offset-lg-2">
-                        <h2 class="fs-16 text-uppercase text-primary mb-3">Happy Customers</h2>
-                        <h3 class="display-3 mb-10 px-xxl-10">Don't take our word for it. See what customers are saying
-                            about us.</h3>
+                        <h2 class="fs-16 text-uppercase text-primary mb-3">{{ $landingtextNames[24] }}</h2>
+                        <h3 class="display-3 mb-10 px-xxl-10">{{ $landingtextNames[25] }}</h3>
                     </div>
                     <!-- /column -->
                 </div>
@@ -280,9 +273,8 @@
         
         <section id="snippet-1" class="wrapper bg-light">
             <div class="container pt-15 pt-md-17 pb-20 pb-md-15">
-                <h2 class="display-4 mb-3 text-center">Our Blog</h2>
-                <p class="lead fs-lg mb-10 text-center px-md-16 px-lg-21 px-xl-0">Here are our latest company news from our
-                    blog</p>
+                <h2 class="display-4 mb-3 text-center">{{ $landingtextNames[26] }}</h2>
+                <p class="lead fs-lg mb-10 text-center px-md-16 px-lg-21 px-xl-0">{{ $landingtextNames[27] }}</p>
                 <div class="swiper-container blog grid-view mb-6" data-margin="30" data-dots="true" data-items-xl="3"
                     data-items-md="2" data-items-xs="1">
                     <div class="swiper">
@@ -295,7 +287,7 @@
                                                     src="{{ App\Models\Media::getimageweb($item->meta['media_token']) }}"
                                                     alt="" /></a>
                                             <figcaption>
-                                                <h5 class="from-top mb-0">Read More</h5>
+                                                <h5 class="from-top mb-0">{{ $landingtextNames[28] }}</h5>
                                             </figcaption>
                                         </figure>
                                         <div class="post-header">
@@ -312,8 +304,8 @@
                                         <div class="post-footer">
                                             <ul class="post-meta">
                                                 <li class="post-date"><i class="uil uil-calendar-alt"></i><span>1{{ $item->created_at->diffForHumans() }}</span></li>
-                                                <li class="post-comments"><a href="#"><i
-                                                            class="uil uil-comment"></i>4</a></li>
+                                                {{-- <li class="post-comments"><a href="#"><i
+                                                            class="uil uil-comment"></i>4</a></li> --}}
                                             </ul>
                                             <!-- /.post-meta -->
                                         </div>
@@ -337,10 +329,9 @@
             <div class="container pb-14 pb-md-16 mt-10">
                 <div class="row gx-lg-8 gx-xl-12 gy-10">
                     <div class="col-lg-6 mb-0">
-                        <h2 class="fs-16 text-uppercase text-primary mb-4">FAQ</h2>
-                        <h3 class="display-3 mb-4">If you don't see an answer to your question, you can send us an email
-                            from our contact form.</h3>
-                        <p class="mb-6">We will answer and accept all feedback complaints and questions that you provide.
+                        <h2 class="fs-16 text-uppercase text-primary mb-4">{{ $landingtextNames[29] }}</h2>
+                        <h3 class="display-3 mb-4">{{ $landingtextNames[30] }}</h3>
+                        <p class="mb-6">{{ $landingtextNames[31] }}
                         </p>
                     </div>
                     <!--/column -->

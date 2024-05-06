@@ -63,6 +63,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Customize\LandingtextController;
 use App\Http\Controllers\Customize\LandingtextImportController;
+use App\Http\Controllers\Customize\LandingimageController;
+use App\Http\Controllers\Customize\LandingimageImportController;
 use App\Http\Controllers\Master\SocialmediaController;
 use App\Http\Controllers\Master\SocialmediaImportController;
 
@@ -226,6 +228,8 @@ Route::prefix('master')->group(function () {
 Route::prefix('customize')->group(function () {
     Route::post('landingtexts/import', LandingtextImportController::class);
     Route::apiResource('landingtexts', LandingtextController::class);
+    Route::post('landingimages/import', LandingimageImportController::class);
+    Route::apiResource('landingimages', LandingimageController::class);
 });
 Route::prefix('blog')->group(function () {
     Route::post('posts/import', PostImportController::class);

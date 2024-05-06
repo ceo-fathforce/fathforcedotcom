@@ -94,5 +94,9 @@ const landingtexts = reactive({
 
 const setItems = (data) => {
     Object.assign(landingtexts, data)
+    landingtexts.data.sort((a, b) => {
+        return new Date(a.createdAt) - new Date(b.createdAt);
+    });
 }
+
 </script>

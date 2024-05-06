@@ -7,5 +7,11 @@ return [
         'props' => [ 
             'name' => 'Text', 
         ], 
-    ], 
+    ],
+    'landingimage' => [ 
+        'landingimage' => 'Gambar Landing Page', 
+        'props' => [ 
+            'name' => 'Nama', 
+        ], 
+    ],  
 ];

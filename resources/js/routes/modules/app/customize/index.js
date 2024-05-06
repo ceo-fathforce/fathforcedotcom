@@ -1,3 +1,4 @@
+import landingimage from "./landingimage";
 import landingtext from "./landingtext";
 
 export default [
@@ -13,6 +14,6 @@ export default [
     component: {
       template: "<router-view></router-view>",
     },
-    children: [...landingtext],
+    children: [...landingtext, ...landingimage],
   },
 ];
