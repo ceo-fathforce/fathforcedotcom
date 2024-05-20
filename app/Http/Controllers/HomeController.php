@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog\Post;
 use App\Models\Blog\PostCategory;
+use App\Models\Customize\Landingimage;
 use App\Models\Customize\Landingtext;
 use App\Models\Master\Gallery;
 use App\Models\Master\GalleryCategory;
@@ -50,6 +51,10 @@ class HomeController extends Controller
         $testimonys = Testimony::orderBy('id', 'DESC')->limit(4)->get()->reverse();
         $servicelists = Servicelist::orderBy('id', 'DESC')->limit(9)->get()->reverse();
         $superioritys = Superiority::orderBy('id', 'DESC')->limit(4)->get()->reverse();
+        $landingtextNames = Landingtext::orderBy('created_at')->pluck('name')->take(32);
+        $landingImages = Landingimage::orderBy('created_at', 'asc')->take(20)->get();
+        $mediaToken = $landingImages[0]->meta['media_token'];
+        $latestMedia = Media::where('meta->media_token', $mediaToken)->orderBy('created_at', 'desc')->first();
 
         $data = [
             'social_network' => $data_front_end['social_network'],
@@ -68,6 +73,9 @@ class HomeController extends Controller
             'testimonys' => $testimonys,
             'servicelists' => $servicelists,
             'superioritys' => $superioritys,
+            'landingtextNames' => $landingtextNames,
+            'landingImages' => $landingImages,
+            'latestMedia' => $latestMedia,
         ];
 
         return view('landing.pages.home', $data);
@@ -102,6 +110,22 @@ class HomeController extends Controller
     // Mendapatkan produk berikutnya
     $nextProduct = Product::where('id', '>', $products->id)->orderBy('id', 'asc')->first();
         return view('landing.pages.product-detail', compact('products', 'productcategory', 'product_category_id', 'medias', 'prevProduct', 'nextProduct'));
+    }
+
+    public function landingimages(Request $request)
+    {
+        $productcategories = ProductCategory::orderBy('id', 'ASC')->get();
+        $selectedProductcategoryId = $request->input('productcategory');
+
+        $productsQuery = Product::with('productcategory')->orderBy('id', 'DESC');
+
+        if ($selectedProductcategoryId !== null) {
+            $productsQuery->where('product_category_id', $selectedProductcategoryId);
+        }
+
+        $products = $productsQuery->paginate(6);
+
+        return view('landing.pages.product', compact('products', 'productcategories', 'selectedProductcategoryId'));
     }
     
     public function portfolios(Request $request)

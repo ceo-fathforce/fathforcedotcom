@@ -3,17 +3,13 @@
 @section('content')
     <div class="content-wrapper">
         @include('landing.partials.header')
-        @php
-            $landingtextNames = App\Models\Customize\Landingtext::orderBy('created_at')->pluck('name')->take(32);
-            
-            $landingImages = App\Models\Customize\Landingimage::orderBy('created_at', 'asc')->take(20)->get()  
-
-        @endphp
+        @if ($landingtextNames)
+        @if ($landingImages)
         <section class="wrapper bg-light">
             <div class="container pt-10 pt-md-14 pb-14 pb-md-16 text-center">
                 <div class="row gx-lg-8 gx-xl-12 gy-10 gy-xl-0 mb-14 align-items-center">
                     <div class="col-lg-7 order-lg-2">
-                        <figure><img class="img-auto" src="{{ App\Models\Media::getimageweb($landingImages[0]->meta->['media_token']) }}" alt="" /></figure>
+                        <figure><img class="img-auto" src="{{ App\Models\Media::getimageweb($landingImages[0]->meta['media_token']) }}" alt="" /></figure>
                     </div>
                     <!-- /column -->
                     <div class="col-md-10 offset-md-1 offset-lg-0 col-lg-5 text-center text-lg-start">
@@ -145,12 +141,12 @@
                             </div>
                             <!--/column -->
                             <div class="col-md-6 align-self-end">
-                                <figure class="rounded"><img src="landing/assets/img/photos/crew2.jpg" alt="">
+                                <figure class="rounded"><img src="{{ App\Models\Media::getimageweb($landingImages[3]->meta['media_token']) }}" alt="">
                                 </figure>
                             </div>
                             <!--/column -->
                             <div class="col-12">
-                                <figure class="rounded mx-md-5"><img src="landing/assets/img/photos/crew3.jpg"
+                                <figure class="rounded mx-md-5"><img src="{{ App\Models\Media::getimageweb($landingImages[4]->meta['media_token']) }}"
                                         alt=""></figure>
                             </div>
                             <!--/column -->
@@ -389,5 +385,7 @@
             });
         }
     </script>
+     @endif
+     @endif
     @include('landing.partials.footer2')
 @endsection

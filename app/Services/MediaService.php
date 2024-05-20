@@ -95,7 +95,7 @@ class MediaService
 
     private function validateFileLimit(Request $request)
     {
-        $maxNoOfFiles = 5;
+        $maxNoOfFiles = 100;
 
         $existingMedia = Media::query()
             ->whereToken($request->token)

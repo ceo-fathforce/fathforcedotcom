@@ -80,11 +80,11 @@ class Media extends Model
     }
 
     public static function getimageweb($token){
-        $path = Media::firstWhere('token', $token);
-        if (!$path) {
-            // return 'https://sisfratani.com/images/guest-background.jpeg';
+        $latestMedia = Media::where('token', $token)->latest()->first(); // Mengambil data terbaru berdasarkan token
+        if (!$latestMedia) {
+            // Jika tidak ada data terbaru, kembalikan URL gambar default
             return url('images/guest-background.jpeg');
         }
-        return Storage::url(str_replace('public/', '', $path->name));
-    }
+        return Storage::url(str_replace('public/', '', $latestMedia->name));
+    }    
 }
