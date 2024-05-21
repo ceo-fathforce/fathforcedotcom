@@ -1,5 +1,10 @@
 import landingimage from "./landingimage";
 import landingtext from "./landingtext";
+import companyimage from "./companyimage";
+import companytext from "./companytext";
+import serviceimage from "./serviceimage";
+import servicetext from "./servicetext";
+import generaltext from "./generaltext";
 
 export default [
   {
@@ -14,6 +19,6 @@ export default [
     component: {
       template: "<router-view></router-view>",
     },
-    children: [...landingtext, ...landingimage],
+    children: [...landingtext, ...landingimage,...companytext, ...companyimage, ...servicetext, ...serviceimage, ...generaltext],
   },
 ];

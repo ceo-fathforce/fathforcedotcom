@@ -13,5 +13,35 @@ return [
         'props' => [ 
             'name' => 'Name', 
         ], 
+    ],
+    'companytext' => [ 
+        'companytext' => 'Text Company Page', 
+        'props' => [ 
+            'name' => 'Text', 
+        ], 
+    ],
+    'companyimage' => [ 
+        'companyimage' => 'Image Company Page', 
+        'props' => [ 
+            'name' => 'Name', 
+        ], 
+    ], 
+    'servicetext' => [ 
+        'servicetext' => 'Text Service Page', 
+        'props' => [ 
+            'name' => 'Text', 
+        ], 
+    ],
+    'serviceimage' => [ 
+        'serviceimage' => 'Image Service Page', 
+        'props' => [ 
+            'name' => 'Name', 
+        ], 
+    ],
+    'generaltext' => [ 
+        'generaltext' => 'Text General Page', 
+        'props' => [ 
+            'name' => 'Text', 
+        ], 
     ], 
 ];

@@ -14,4 +14,34 @@ return [
             'name' => 'Nama', 
         ], 
     ],  
+    'companytext' => [ 
+        'companytext' => 'Text Company Page', 
+        'props' => [ 
+            'name' => 'Text', 
+        ], 
+    ],
+    'companyimage' => [ 
+        'companyimage' => 'Gambar Company Page', 
+        'props' => [ 
+            'name' => 'Nama', 
+        ], 
+    ],
+    'servicetext' => [ 
+        'servicetext' => 'Text Service Page', 
+        'props' => [ 
+            'name' => 'Text', 
+        ], 
+    ],
+    'serviceimage' => [ 
+        'serviceimage' => 'Gambar Service Page', 
+        'props' => [ 
+            'name' => 'Nama', 
+        ], 
+    ],
+    'generaltext' => [ 
+        'generaltext' => 'Text General Page', 
+        'props' => [ 
+            'name' => 'Text', 
+        ], 
+    ],  
 ];

@@ -8,6 +8,11 @@ const toast = useToast();
 
 import landingtext from "@stores/modules/customize/landingtext";
 import landingimage from "@stores/modules/customize/landingimage";
+import companytext from "@stores/modules/customize/companytext";
+import companyimage from "@stores/modules/customize/companyimage";
+import servicetext from "@stores/modules/customize/servicetext";
+import serviceimage from "@stores/modules/customize/serviceimage";
+import generaltext from "@stores/modules/customize/generaltext";
 
 const initialState = () => ({
   initURL: "/app/customize",
@@ -20,6 +25,11 @@ const customize = {
   modules: {
     landingtext,
     landingimage,
+    companytext,
+    companyimage,
+    servicetext,
+    serviceimage,
+    generaltext,
   },
   mutations: {
     ...mutations,

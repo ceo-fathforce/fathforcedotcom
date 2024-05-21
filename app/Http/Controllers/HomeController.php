@@ -6,6 +6,11 @@ use App\Models\Blog\Post;
 use App\Models\Blog\PostCategory;
 use App\Models\Customize\Landingimage;
 use App\Models\Customize\Landingtext;
+use App\Models\Customize\Companyimage;
+use App\Models\Customize\Companytext;
+use App\Models\Customize\Generaltext;
+use App\Models\Customize\Serviceimage;
+use App\Models\Customize\Servicetext;
 use App\Models\Master\Gallery;
 use App\Models\Master\GalleryCategory;
 use App\Models\Master\PartnerCompany;
@@ -53,6 +58,8 @@ class HomeController extends Controller
         $superioritys = Superiority::orderBy('id', 'DESC')->limit(4)->get()->reverse();
         $landingtextNames = Landingtext::orderBy('created_at')->pluck('name')->take(32);
         $landingImages = Landingimage::orderBy('created_at', 'asc')->take(20)->get();
+        $companytextNames = Companytext::orderBy('created_at')->pluck('name')->take(49);
+        $companyImages = Companyimage::orderBy('created_at', 'asc')->take(20)->get();
         $mediaToken = $landingImages[0]->meta['media_token'];
         $latestMedia = Media::where('meta->media_token', $mediaToken)->orderBy('created_at', 'desc')->first();
 
@@ -75,6 +82,8 @@ class HomeController extends Controller
             'superioritys' => $superioritys,
             'landingtextNames' => $landingtextNames,
             'landingImages' => $landingImages,
+            'companytextNames' => $companytextNames,
+            'companyImages' => $companyImages,
             'latestMedia' => $latestMedia,
         ];
 
@@ -83,6 +92,7 @@ class HomeController extends Controller
     public function products(Request $request)
     {
         $productcategories = ProductCategory::orderBy('id', 'ASC')->get();
+        $generaltextNames = Generaltext::orderBy('created_at')->pluck('name')->take(50);
         $selectedProductcategoryId = $request->input('productcategory');
 
         $productsQuery = Product::with('productcategory')->orderBy('id', 'DESC');
@@ -93,7 +103,7 @@ class HomeController extends Controller
 
         $products = $productsQuery->paginate(6);
 
-        return view('landing.pages.product', compact('products', 'productcategories', 'selectedProductcategoryId'));
+        return view('landing.pages.product', compact('products', 'productcategories', 'selectedProductcategoryId', 'generaltextNames'));
     }
     public function productdetail($uuid, Request $request)
     {
@@ -130,6 +140,7 @@ class HomeController extends Controller
     
     public function portfolios(Request $request)
     {
+        $generaltextNames = Generaltext::orderBy('created_at')->pluck('name')->take(50);
         $portfoliocategories = PortfolioCategory::orderBy('id', 'ASC')->get();
         $selectedPortfoliocategoryId = $request->input('portfoliocategory');
 
@@ -143,7 +154,7 @@ class HomeController extends Controller
 
         
 
-        return view('landing.pages.portfolio', compact('portfolios', 'portfoliocategories', 'selectedPortfoliocategoryId'));
+        return view('landing.pages.portfolio', compact('portfolios', 'portfoliocategories', 'selectedPortfoliocategoryId', 'generaltextNames'));
     }
     public function portfoliodetail($uuid, Request $request)
     {
@@ -202,6 +213,8 @@ class HomeController extends Controller
     
     public function service()
     {
+    $servicetextNames = Servicetext::orderBy('created_at')->pluck('name')->take(50);
+    $serviceImages = Serviceimage::orderBy('created_at', 'asc')->take(20)->get();
     $companyData = Companydata::first();
 
     $completedProjects = $companyData->completedprojects;
@@ -209,7 +222,7 @@ class HomeController extends Controller
     $satisfiedCostumers = $companyData->satisfiedcostumers;
     $employees = $companyData->employees;
 
-        return view('landing.pages.service', compact('completedProjects', 'totalProducts', 'satisfiedCostumers', 'employees'));
+        return view('landing.pages.service', compact('completedProjects', 'totalProducts', 'satisfiedCostumers', 'employees', 'servicetextNames', 'serviceImages'));
     }
 
     public function footer()
@@ -227,6 +240,8 @@ class HomeController extends Controller
     
     public function company()
     {
+    $companytextNames = Companytext::orderBy('created_at')->pluck('name')->take(50);
+    $companyImages = Companyimage::orderBy('created_at', 'asc')->take(20)->get();
     $companyData = Companydata::first();
 
     $completedProjects = $companyData->completedprojects;
@@ -234,21 +249,24 @@ class HomeController extends Controller
     $satisfiedCostumers = $companyData->satisfiedcostumers;
     $employees = $companyData->employees;
 
-        return view('landing.pages.company', compact('completedProjects', 'totalProducts', 'satisfiedCostumers', 'employees'));
+        return view('landing.pages.company', compact('completedProjects', 'totalProducts', 'satisfiedCostumers', 'employees', 'companytextNames', 'companyImages'));
         
     }
     public function partnercompany(Request $request)
     {
         $partnercompanys = PartnerCompany::orderBy('id', 'DESC')->paginate(6);
-        return view('landing.pages.partner-company ', compact('partnercompanys'));
+        $generaltextNames = Generaltext::orderBy('created_at')->pluck('name')->take(50);
+        return view('landing.pages.partner-company ', compact('partnercompanys', 'generaltextNames'));
     }
     public function partnerschool(Request $request)
     {
         $partnerschools = PartnerSchool::orderBy('id', 'DESC')->paginate(6);
-        return view('landing.pages.partner-school', compact('partnerschools'));
+        $generaltextNames = Generaltext::orderBy('created_at')->pluck('name')->take(50);
+        return view('landing.pages.partner-school', compact('partnerschools', 'generaltextNames'));
     }
     public function gallery(Request $request)
     {
+        $generaltextNames = Generaltext::orderBy('created_at')->pluck('name')->take(50);
         $gallerycategories = GalleryCategory::orderBy('id', 'ASC')->get();
         $selectedGallerycategoryId = $request->input('gallerycategory');
 
@@ -260,11 +278,12 @@ class HomeController extends Controller
 
         $gallerys = $gallerysQuery->paginate(6);
 
-        return view('landing.pages.gallery', compact('gallerys'));
+        return view('landing.pages.gallery', compact('gallerys', 'generaltextNames'));
     }
     public function posts(Request $request)
     {
         $postcategories = PostCategory::orderBy('id', 'ASC')->get();
+        $generaltextNames = Generaltext::orderBy('created_at')->pluck('name')->take(50);
         $selectedPostcategoryId = $request->input('postcategory');
 
         $postsQuery = Post::with('postcategory')->orderBy('id', 'DESC');
@@ -275,7 +294,7 @@ class HomeController extends Controller
 
         $posts = $postsQuery->paginate(5);
 
-        return view('landing.pages.post', compact('posts', 'postcategories', 'selectedPostcategoryId'));
+        return view('landing.pages.post', compact('posts', 'postcategories', 'selectedPostcategoryId', 'generaltextNames'));
     }
 
     public function landingtexts(Request $request)
@@ -292,12 +311,13 @@ class HomeController extends Controller
     public function postdetail($uuid, Request $request)
     {
         $posts = Post::where('uuid', $uuid)->first();
+        $generaltextNames = Generaltext::orderBy('created_at')->pluck('name')->take(50);
 
         if ($posts) {
             $postcategory = Post::where('post_category_id', $posts->post_category_id)->limit(3)->get();
             $post_category_id = $posts->post_category_id;
 
-            return view('landing.pages.post-detail', compact('posts', 'postcategory', 'post_category_id'));
+            return view('landing.pages.post-detail', compact('posts', 'postcategory', 'post_category_id', 'generaltextNames'));
         } else {
             abort(404);
         }

@@ -1,12 +1,13 @@
 @extends('landing.app')
 @section('content')
 @include('landing.partials.header')
+@if ($generaltextNames)
     <div class="content-wrapper">
         <section class="wrapper bg-light">
             <div class="container pt-10 pt-md-14">
                 <div class="row">
                     <div class="col-lg-10 col-xxl-8">
-                        <h1 class="display-1 mb-0">Our Product.</h1>
+                        <h1 class="display-1 mb-0">{{ $generaltextNames[1] }}</h1>
                     </div>
                     <!-- /column -->
                 </div>
@@ -21,7 +22,7 @@
                     <div class="isotope-filter filter mb-10">
                         <p style="font-weight:600; color:black">Filter :</p>
                         <ul>
-                            <li><a class="filter-item" data-filter="*">All</a></li>
+                            {{-- <li><a class="filter-item" data-filter="*">All</a></li> --}}
                             @foreach ($productcategories as $category)
                                 <li><a class="filter-item" data-filter=".{{ $category->title }}">{{ $category->title }}</a>
                                 </li>
@@ -98,4 +99,5 @@
             });
         });
     </script>
+@endif
 @endsection

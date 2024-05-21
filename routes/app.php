@@ -65,6 +65,16 @@ use App\Http\Controllers\Customize\LandingtextController;
 use App\Http\Controllers\Customize\LandingtextImportController;
 use App\Http\Controllers\Customize\LandingimageController;
 use App\Http\Controllers\Customize\LandingimageImportController;
+use App\Http\Controllers\Customize\CompanytextController;
+use App\Http\Controllers\Customize\CompanytextImportController;
+use App\Http\Controllers\Customize\CompanyimageController;
+use App\Http\Controllers\Customize\CompanyimageImportController;
+use App\Http\Controllers\Customize\GeneraltextController;
+use App\Http\Controllers\Customize\GeneraltextImportController;
+use App\Http\Controllers\Customize\ServiceimageController;
+use App\Http\Controllers\Customize\ServiceimageImportController;
+use App\Http\Controllers\Customize\ServicetextController;
+use App\Http\Controllers\Customize\ServicetextImportController;
 use App\Http\Controllers\Master\SocialmediaController;
 use App\Http\Controllers\Master\SocialmediaImportController;
 
@@ -230,6 +240,16 @@ Route::prefix('customize')->group(function () {
     Route::apiResource('landingtexts', LandingtextController::class);
     Route::post('landingimages/import', LandingimageImportController::class);
     Route::apiResource('landingimages', LandingimageController::class);
+    Route::post('servicetexts/import', ServicetextImportController::class);
+    Route::apiResource('servicetexts', ServicetextController::class);
+    Route::post('serviceimages/import', ServiceimageImportController::class);
+    Route::apiResource('serviceimages', ServiceimageController::class);
+    Route::post('companytexts/import', CompanytextImportController::class);
+    Route::apiResource('companytexts', CompanytextController::class);
+    Route::post('companyimages/import', CompanyimageImportController::class);
+    Route::apiResource('companyimages', CompanyimageController::class);
+    Route::post('generaltexts/import', GeneraltextImportController::class);
+    Route::apiResource('generaltexts', GeneraltextController::class);;
 });
 Route::prefix('blog')->group(function () {
     Route::post('posts/import', PostImportController::class);

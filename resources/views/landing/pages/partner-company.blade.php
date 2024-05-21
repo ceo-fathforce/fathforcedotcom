@@ -1,6 +1,7 @@
 @extends('landing.app')
 
 @section('content')
+@if ($generaltextNames)
     <div class="content-wrapper">
         @include('landing.partials.header')
         <!-- /header -->
@@ -8,9 +9,8 @@
             <div class="container pt-10 pt-md-14 text-center">
                 <div class="row">
                     <div class="col-md-8 col-lg-7 col-xl-6 col-xxl-5 mx-auto">
-                        <h1 class="display-1 mb-3">Company Partner</h1>
-                        <p class="lead fs-lg px-lg-10 px-xxl-8">Check out some of our awesome projects with creative ideas
-                            and great design.</p>
+                        <h1 class="display-1 mb-3">{{ $generaltextNames[4] }}</h1>
+                        <p class="lead fs-lg px-lg-10 px-xxl-8">{{ $generaltextNames[5] }}</p>
                     </div>
                     <!-- /column -->
                 </div>
@@ -48,5 +48,6 @@
         </section>
         <!-- /section -->
     </div>
+    @endif
     @include('landing.partials.footer2')
 @endsection

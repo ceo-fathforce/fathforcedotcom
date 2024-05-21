@@ -1,6 +1,7 @@
 @extends('landing.app')
 
 @section('content')
+@if ($generaltextNames)
 <div class="content-wrapper">
   @include('landing.partials.header')
   <section class="wrapper image-wrapper bg-image bg-overlay text-white" data-image-src="{{App\Models\Media::getimageweb($posts->meta['media_token'])}}">
@@ -209,8 +210,8 @@
           </div>
           <!-- /.widget -->
           <div class="widget">
-            <h4 class="widget-title mb-3">About Us</h4>
-            <p>PT. Fath Synergy Group is a web and mobile software development company based in Bandung, Indonesia. We build systems with in-depth analysis and have built many web and mobile applications. We prioritize quality and stability in the systems we build.</p>
+            <h4 class="widget-title mb-3">{{ $generaltextNames[8] }}</h4>
+            <p>{{ $generaltextNames[9] }}</p>
             <nav class="nav social">
           @php
               $footerData = App\Models\Master\Socialmedia::orderBy('created_at', 'asc')->first();
@@ -276,5 +277,6 @@
 </div>
 <!-- /.content-wrapper -->
   <!-- /.container -->
+@endif
 @include('landing.partials.footer2')
 @endsection

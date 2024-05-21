@@ -1,6 +1,7 @@
 @extends('landing.app')
 
 @section('content')
+@if ($generaltextNames)
     <div class="content-wrapper">
         @include('landing.partials.header')
         <section class="section-frame overflow-hidden">
@@ -8,9 +9,8 @@
                 <div class="container py-12 py-md-16 text-center">
                     <div class="row">
                         <div class="col-md-7 col-lg-6 col-xl-5 mx-auto">
-                            <h1 class="display-1 mb-3">Fathforce Blog</h1>
-                            <p class="lead px-lg-5 px-xxl-8 mb-1">Here you can find the latest
-                                company news and business articles.</p>
+                            <h1 class="display-1 mb-3">{{ $generaltextNames[6] }}</h1>
+                            <p class="lead px-lg-5 px-xxl-8 mb-1">{{ $generaltextNames[7] }}</p>
                         </div>
                         <!-- /column -->
                     </div>
@@ -100,10 +100,8 @@
                         </div>
                         <!-- /.widget -->
                         <div class="widget">
-                            <h4 class="widget-title mb-3">About Us</h4>
-                            <p>PT. Fath Synergy Group is a web and mobile software development company based in Bandung,
-                                Indonesia. We build systems with in-depth analysis and have built many web and mobile
-                                applications. We prioritize quality and stability in the systems we build.</p>
+                            <h4 class="widget-title mb-3">{{ $generaltextNames[8] }}</h4>
+                            <p>{{ $generaltextNames[9] }}</p>
                             @php
                                 $footerData = App\Models\Master\Socialmedia::orderBy('created_at', 'asc')->first();
                             @endphp
@@ -139,4 +137,5 @@
         <!-- /section -->
     </div>
     @include('landing.partials.footer2')
+    @endif
 @endsection
