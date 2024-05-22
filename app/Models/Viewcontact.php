@@ -8,14 +8,11 @@ use App\Concerns\HasMeta;
 use App\Concerns\HasUuid;
 use App\Contracts\Mediable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Traits\HasRoles;
-use App\Mail\ContactMail;
-use Illuminate\Support\Str;
 
-class Contact extends Model implements Mediable
+class Viewcontact extends Model implements Mediable
 {
     use HasFactory, HasFilter, HasUuid, HasMeta, HasMedia, HasRoles;
 
@@ -31,21 +28,7 @@ class Contact extends Model implements Mediable
 
     public function getModelName(): string
     {
-        return 'Project';
-    }
-
-
-    /**
-     * The "booted" method of the model.
-     *
-     * @return void
-     */
-
-    protected static function booted()
-    {
-        static::creating(function ($contact) {
-            $contact->uuid = Str::uuid(); // Generate UUID
-        });
+        return 'Viewcontact';
     }
 
     public function isEditable()

@@ -17,6 +17,7 @@ import landing from "@stores/modules/landing";
 import option from "@stores/modules/option";
 import tag from "@stores/modules/tag";
 import moduleImport from "@stores/modules/moduleImport";
+import viewcontact from "@stores/modules/viewcontact";
 
 const initialState = () => ({});
 
@@ -39,6 +40,7 @@ const store = createStore({
     tag,
     moduleImport,
     customize,
+    viewcontact,
   },
   state: initialState,
   mutations: {},

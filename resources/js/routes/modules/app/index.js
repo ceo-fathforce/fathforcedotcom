@@ -7,6 +7,7 @@ import master from "./master";
 import landing from "./landing";
 import blog from "./blog";
 import customize from "./customize"
+import viewcontact from "./viewcontact";
 
 export default [
   ...dashboard,
@@ -18,4 +19,5 @@ export default [
   ...utility,
   ...config,
   ...customize,
+  ...viewcontact,
 ];

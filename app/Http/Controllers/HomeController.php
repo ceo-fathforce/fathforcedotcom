@@ -345,7 +345,9 @@ class HomeController extends Controller
 
     public function contact()
     {
-        return view('landing.pages.contact');
+        $generaltextNames = Generaltext::orderBy('created_at')->pluck('name')->take(50);
+
+        return view('landing.pages.contact',  compact('generaltextNames'));
     }
     public function signin()
     {

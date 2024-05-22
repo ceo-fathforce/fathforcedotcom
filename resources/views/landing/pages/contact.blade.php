@@ -3,13 +3,13 @@
 @section('content')
     <div class="content-wrapper">
         @include('landing.partials.header')
+        @if ($generaltextNames)
         <section class="wrapper bg-dark text-white">
             <div class="container pt-18 pt-md-20 pb-21 pb-md-21 text-center">
                 <div class="row">
                     <div class="col-sm-10 col-md-8 col-lg-6 col-xl-6 col-xxl-5 mx-auto">
-                        <h1 class="display-1 text-white mb-3">Get in Touch</h1>
-                        <p class="lead px-xl-10 px-xxl-10">Have any questions? Reach out to us from our contact form and we
-                            will get back to you shortly.</p>
+                        <h1 class="display-1 text-white mb-3">{{ $generaltextNames[12] }}</h1>
+                        <p class="lead px-xl-10 px-xxl-10">{{ $generaltextNames[13] }}</p>
                     </div>
                     <!-- /column -->
                 </div>
@@ -30,12 +30,9 @@
                                 <!--/column -->
                                 <div class="col-lg-6">
                                     <div class="p-10 p-md-11 p-lg-13">
-                                        <h2 class="display-4 mb-3">Let’s Talk</h2>
-                                        <p class="lead fs-lg">Let's make something great together. We are trusted by over
-                                            5000+ clients. Join them by using our services and grow your business.</p>
-                                        <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
-                                            Maecenas faucibus mollis interdum. Fusce dapibus, tellus ac cursus commodo,
-                                            tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                                        <h2 class="display-4 mb-3">{{ $generaltextNames[14] }}</h2>
+                                        <p class="lead fs-lg">{{ $generaltextNames[15] }}</p>
+                                        <p>{{ $generaltextNames[16] }}</p>
                                     </div>
                                     <!--/div -->
                                 </div>
@@ -51,7 +48,8 @@
                 <div class="row">
                     <div class="col-xl-10 mx-auto">
                         <div class="row gy-10 gx-lg-8 gx-xl-12">
-                            <div class="col-lg-8">
+                            
+                            {{-- <div class="col-lg-8">
                                 @if(session('success'))
                                         <div class="alert alert-success">
                                             {{ session('success') }}
@@ -94,10 +92,9 @@
                                         <div class="col-md-6">
                                             <div class="form-select-wrapper mb-4">
                                                 <select class="form-select" id="form-select" name="department" required>
-                                                    <option selected disabled value="">Select a department</option>
-                                                    <option value="Sales">Sales</option>
-                                                    <option value="Marketing">Marketing</option>
-                                                    <option value="Customer Support">Customer Support</option>
+                                                    <option selected disabled value="">Gender</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
                                                 </select>
                                                 <div class="valid-feedback"> Looks good! </div>
                                                 <div class="invalid-feedback"> Please select a department. </div>
@@ -119,7 +116,7 @@
                                                 <input class="form-check-input" type="checkbox" value=""
                                                     id="invalidCheck" required>
                                                 <label class="form-check-label" for="invalidCheck"> I agree to <a
-                                                        href="#" class="hover">terms and policy</a>. </label>
+                                                        href="{{ url('/term') }}" class="hover">terms and policy</a>. </label>
                                                 <div class="invalid-feedback"> You must agree before submitting. </div>
                                             </div>
                                         </div>
@@ -135,9 +132,9 @@
                                 </form>
                                 <!-- /form -->
                                 <!-- /form -->
-                            </div>
+                            </div> --}}
                             <!--/column -->
-                            <div class="col-lg-4">
+                            {{-- <div class="col-lg-4">
                                 <div class="d-flex flex-row">
                                     <div>
                                         <div class="icon text-primary fs-28 me-4 mt-n1"> <i
@@ -170,7 +167,7 @@
                                                 class="link-body">hi@fathforce.com</a></p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!--/column -->
                         </div>
                         <!--/.row -->
@@ -182,15 +179,45 @@
             <!-- /.container -->
         </section>
         <!-- /section -->
-        <section class="wrapper bg-light">
-            <div class="map">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.54838984054564!2d107.75755145559506!3d-6.91757238033024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68dd000858d54d%3A0xfe86447201a591bc!2sPT.%20Fath%20Synergy%20Group!5e0!3m2!1sid!2sid!4v1713411062827!5m2!1sid!2sid"
-                    style="width:100%; height: 500px; border:0" allowfullscreen></iframe>
-            </div>
-            <!-- /.map -->
-        </section>
+        <div class="container">
+            <section class="wrapper bg-light">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="map" style="width: 100%; height: 500px;">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.54838984054564!2d107.75755145559506!3d-6.91757238033024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68dd000858d54d%3A0xfe86447201a591bc!2sPT.%20Fath%20Synergy%20Group!5e0!3m2!1sid!2sid!4v1713411062827!5m2!1sid!2sid" style="width:100%; height: 100%; border:0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex flex-row align-items-center mb-3">
+                                <div class="icon text-primary fs-28 me-4 mt-n1"> <i class="uil uil-location-pin-alt"></i> </div>
+                                <div>
+                                    <h5 class="mb-1">{{ $generaltextNames[17] }}</h5>
+                                    <address>{{ $generaltextNames[18] }}</address>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row align-items-center mb-3">
+                                <div class="icon text-primary fs-28 me-4 mt-n1"> <i class="uil uil-phone-volume"></i> </div>
+                                <div>
+                                    <h5 class="mb-1">{{ $generaltextNames[19] }}</h5>
+                                    <p>{{ $generaltextNames[20] }}</p>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row align-items-center">
+                                <div class="icon text-primary fs-28 me-4 mt-n1"> <i class="uil uil-envelope"></i> </div>
+                                <div>
+                                    <h5 class="mb-1">{{ $generaltextNames[21] }}</h5>
+                                    <p class="mb-0"><a href="mailto:hi@fathforce.com" class="link-body">{{ $generaltextNames[22] }}</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
         <!-- /section -->
     </div>
+    @endif
     @include('landing.partials.footer2')
 @endsection

@@ -43,6 +43,8 @@ use App\Http\Controllers\OptionImportController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectImportController;
+use App\Http\Controllers\ViewcontactController;
+use App\Http\Controllers\ViewcontactImportController;
 use App\Http\Controllers\Master\CompanydataController;
 use App\Http\Controllers\Master\CompanydataImportController;
 use App\Http\Controllers\Master\ProductCategoryController;
@@ -202,6 +204,9 @@ Route::resource('medias', MediaController::class)->only(['store', 'destroy']);
 
 Route::post('projects/import', ProjectImportController::class);
 Route::apiResource('projects', ProjectController::class);
+
+Route::post('viewcontacts/import', ViewcontactImportController::class);
+Route::apiResource('viewcontacts', ViewcontactController::class);
 
 Route::prefix('master')->group(function () {
     Route::post('companydatas/import', CompanydataImportController::class);

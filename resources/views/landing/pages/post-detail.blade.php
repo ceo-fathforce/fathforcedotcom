@@ -49,7 +49,7 @@
                     <div class="post-footer d-md-flex flex-md-row justify-content-md-between align-items-center mt-8">
                       <div>
                         <ul class="list-unstyled tag-list mb-0">
-                          <li><a href="#" class="btn btn-soft-ash btn-sm rounded-pill mb-0">{{ $posts->postcategory['title'] }}</a></li>
+                          <li><a class="btn btn-soft-ash btn-sm rounded-pill mb-0">{{ $posts->postcategory['title'] }}</a></li>
                         </ul>
                       </div>
                       <div class="mb-0 mb-md-2">
@@ -95,7 +95,7 @@
                 </nav>
                 <!-- /.social -->
                 <hr />
-                <h3 class="mb-6">You Might Also Like</h3>
+                <h3 class="mb-6">Latest Post</h3>
                 <div class="swiper-container blog grid-view mb-16" data-margin="30" data-dots="true" data-items-md="2" data-items-xs="1">
                   <div class="swiper">
                     <div class="swiper-wrapper">
@@ -105,7 +105,7 @@
                       @foreach($latestPosts as $posts)
                       <div class="swiper-slide">
                         <article>
-                          <figure class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img src="{{App\Models\Media::getimageweb($posts->meta['media_token'])}}" alt="" /></a>
+                          <figure class="overlay overlay-1 hover-scale rounded mb-5"><a href="{{ url('posts/detail/' . $posts->uuid) }}"> <img src="{{App\Models\Media::getimageweb($posts->meta['media_token'])}}" alt="" /></a>
                             <figcaption>
                               <h5 class="from-top mb-0">Read More</h5>
                             </figcaption>
@@ -115,7 +115,7 @@
                               <a href="#" class="hover" rel="category">{{ $posts->postcategory['title'] }}</a>
                             </div>
                             <!-- /.post-category -->
-                            <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="/{{ url('posts/detail/' . $posts->uuid) }}">{{ $posts->name }}</a></h2>
+                            <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="{{ url('posts/detail/' . $posts->uuid) }}">{{ $posts->name }}</a></h2>
                           </div>
                           <!-- /.post-header -->
                           <div class="post-footer">
@@ -135,7 +135,7 @@
                   <!-- /.swiper -->
                 </div>
                 <!-- /.swiper-container -->
-                <hr />
+                {{-- <hr /> --}}
                 {{-- <div id="comments">
                   <h3 class="mb-6">5 Comments</h3>
                   <ol id="singlecomments" class="commentlist">
