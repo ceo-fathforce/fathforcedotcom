@@ -34,6 +34,10 @@
             <div v-html="product.description"></div>
           </BaseDataView>
 
+          <BaseDataView :label="$trans('master.product.props.url')">
+            <div v-html="product.url"></div>
+          </BaseDataView>
+
           <BaseDataView
             :label="$trans('master.productcategory.productcategory')"
           >

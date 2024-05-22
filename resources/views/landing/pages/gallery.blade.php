@@ -1,5 +1,6 @@
 @extends('landing.app')
 @if ($generaltextNames)
+@if ($gallerycategories)
 @section('content')
     <div class="content-wrapper">
         @include('landing.partials.header')
@@ -22,18 +23,18 @@
             <div class="container py-14 py-md-16">
                 <div class="grid grid-view projects-masonry">
                     <div class="isotope-filter filter mb-10">
-                        <p>Filter:</p>
+                        <p style="font-weight:600; color:black">Filter :</p>
                         <ul>
-                            <li><a class="filter-item active" data-filter="*">All</a></li>
-                            <li><a class="filter-item" data-filter=".concept">Concept</a></li>
-                            <li><a class="filter-item" data-filter=".product">Product</a></li>
-                            <li><a class="filter-item" data-filter=".workshop">Workshop</a></li>
-                            <li><a class="filter-item" data-filter=".still-life">Still Life</a></li>
+                            <li><a class="filter-item" data-filter="*">All</a></li>
+                            @foreach ($gallerycategories as $category)
+                                <li><a class="filter-item" data-filter=".{{ $category->title }}">{{ $category->title }}</a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                     <div class="row gx-md-10 gy-10 gy-md-13">
                         @foreach ($gallerys as $item)
-                            <div class="col-md-6 mb-4">
+                            <div class="col-md-6 mb-4 gallery-item {{ $item->gallerycategory->title }}">
                                 <div class="project item product">
                                     <figure class="lift rounded hover-scale rounded cursor-dark mb-6">
                                         <a href="{{ App\Models\Media::getimageweb($item->meta['media_token']) }}"
@@ -65,6 +66,22 @@
         </section>
         <!-- /section -->
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.filter-item').on('click', function() {
+                var filterValue = $(this).data('filter');
+                if (filterValue === '*') {
+                $('.gallery-item').show();
+                } else {
+                    $('.gallery-item').hide();
+                    $(filterValue).show();
+                }
+            });
+        });
+    </script>
     @include('landing.partials.footer2')
+@endif
 @endif
 @endsection

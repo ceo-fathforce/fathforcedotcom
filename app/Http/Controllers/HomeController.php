@@ -278,7 +278,7 @@ class HomeController extends Controller
 
         $gallerys = $gallerysQuery->paginate(6);
 
-        return view('landing.pages.gallery', compact('gallerys', 'generaltextNames'));
+        return view('landing.pages.gallery', compact('gallerys', 'generaltextNames', 'gallerycategories'));
     }
     public function posts(Request $request)
     {

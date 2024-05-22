@@ -22,7 +22,7 @@
                     <div class="isotope-filter filter mb-10">
                         <p style="font-weight:600; color:black">Filter :</p>
                         <ul>
-                            {{-- <li><a class="filter-item" data-filter="*">All</a></li> --}}
+                            <li><a class="filter-item" data-filter="*">All</a></li>
                             @foreach ($portfoliocategories as $category)
                                 <li><a class="filter-item" data-filter=".{{ $category->title }}">{{ $category->title }}</a>
                                 </li>
@@ -94,8 +94,12 @@
         $(document).ready(function() {
             $('.filter-item').on('click', function() {
                 var filterValue = $(this).data('filter');
-                $('.portfolio-item').hide();
-                $(filterValue).show();
+                if (filterValue === '*') {
+                $('.portfolio-item').show();
+                } else {
+                    $('.portfolio-item').hide();
+                    $(filterValue).show();
+                }
             });
         });
     </script>

@@ -44,8 +44,8 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="posts">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link" href="gallery">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('/posts') }}">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('/gallery') }}">Gallery</a></li>
                     </ul>
                     <!-- /.navbar-nav -->
                     <div class="d-lg-none mt-auto pt-6 pb-6 order-4">
@@ -66,17 +66,7 @@
             </div>
             <!-- /.navbar-collapse -->
             <div class="navbar-other w-100 d-flex ms-auto">
-                <ul class="navbar-nav flex-row align-items-center ms-auto">
-                    <li class="nav-item dropdown language-select text-uppercase">
-                        <a class="nav-link dropdown-item dropdown-toggle" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{strtoupper(Lang::locale())}}
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item"><a class="dropdown-item" href="lang/en">EN</a></li>
-                            <li class="nav-item"><a class="dropdown-item" href="lang/id">ID</a></li>
-                        </ul>
-                    </li>                    
+                <ul class="navbar-nav flex-row align-items-center ms-auto">                 
                     <li class="nav-item d-none d-md-block">
                         <a href="/contact" class="btn btn-sm btn-primary rounded-pill">Contact</a>
                     </li>

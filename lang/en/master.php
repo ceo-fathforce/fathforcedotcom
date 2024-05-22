@@ -14,6 +14,7 @@ return [
         'props' => [
             'name' => 'Name',
             'description' => 'Description',
+            'url' => 'Url',
 
         ],
     ],

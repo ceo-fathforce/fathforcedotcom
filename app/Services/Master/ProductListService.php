@@ -37,6 +37,12 @@ class ProductListService extends ListGenerator
                 'sortable' => false,
                 'visibility' => true,
             ],
+            [
+                'key' => 'url',
+                'label' => trans('master.portfolio.props.url'),
+                'sortable' => false,
+                'visibility' => false,
+            ],
         ];
 
         if (request()->ajax()) {
@@ -50,7 +56,7 @@ class ProductListService extends ListGenerator
     {
         return Product::query()
             ->filter([
-                'App\QueryFilters\LikeMatch:search,name,description',
+                'App\QueryFilters\LikeMatch:search,name,description,url',
             ]);
     }
 

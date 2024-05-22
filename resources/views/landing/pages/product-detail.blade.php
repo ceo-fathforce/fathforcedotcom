@@ -25,38 +25,11 @@
         <section class="wrapper bg-light wrapper-border">
             <div class="container pb-14 pb-md-16">
                 <article>
-                        <div class="post-slider mb-8 mb-md-12">
-                            <div class="swiper-container dots-over" data-margin="5" data-dots="true" data-nav="true"
-                                data-autoheight="true">
-                                <div class="swiper">
-                                    <div class="swiper-wrapper">
-                                        @foreach ($medias as $media)
-                                            <div class="swiper-slide rounded">
-                                                <img src="{{ asset(str_replace('public', 'storage', $media->name)) }}"
-                                                    alt="" />
-                                                <div class="caption-wrapper p-12">
-                                                    <div class="caption bg-white rounded px-4 py-3 ms-auto mt-auto animate__animated animate__slideInDown animate__delay-1s z-index-999"
-                                                        style="z-index: 9999">
-                                                        <h5 class="mb-0">{{ $products->name }} Preview</h5>
-                                                    </div>
-                                                    <!--/.caption -->
-                                                </div>
-                                                <!--/.caption-wrapper -->
-                                            </div>
-                                        @endforeach
-                                        <!--/.swiper-slide -->
-                                    </div>
-                                    <!--/.swiper-wrapper -->
-                                </div>
-                                <!-- /.swiper -->
-                            </div>
-                            <!-- /.swiper-container -->
-                        </div>
-     
+                    <figure class="rounded mb-8 mb-md-12"><img src="{{ App\Models\Media::getimageweb($products->meta['media_token']) }}" alt="" /></figure>
                     <!-- /.post-slider -->
                     <div class="row">
                         <div class="col-lg-10 offset-lg-1">
-                            <h2 class="display-6 mb-4">About Fathforce</h2>
+                            <h2 class="display-6 mb-4">About {{ $products->name }}</h2>
                             <div class="row gx-0">
                                 <div class="col-md-9 text-justify">
                                     <p>{{ $products->description }}</p>
@@ -69,7 +42,7 @@
                                             <p>{{ $products->created_at->diffForHumans() }}</p>
                                         </li>
                                     </ul>
-                                    <a href="/" class="more hover">See Project</a>
+                                    <a href="{{ $products->url }}" class="more hover">See Project</a>
                                 </div>
                                 <!--/column -->
                             </div>

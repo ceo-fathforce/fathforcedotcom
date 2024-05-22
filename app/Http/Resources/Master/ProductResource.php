@@ -25,6 +25,7 @@ class ProductResource extends JsonResource
             'productcategorytitle' => $productcategory->title,
             'name' => $this->name,
             'description' => $this->description,
+            'url' => $this->url,
             'media_token' => $this->getMeta('media_token'),
             'media' => MediaResource::collection($this->whenLoaded('media')),
             'is_createtable' => $this->isEditable() && Auth::user()->can('product:create'),

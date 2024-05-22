@@ -26,6 +26,7 @@ class ProductRequest extends FormRequest
         return [
             'name' => 'nullable',
             'description' => 'nullable',
+            'url' => 'nullable'
         ];
     }
 }

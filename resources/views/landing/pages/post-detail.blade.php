@@ -17,9 +17,9 @@
             <ul class="post-meta text-white">
               <li class="post-date"><i class="uil uil-calendar-alt"></i><span>{{ $posts->created_at->format('Y-m-d') }}</span></li>
               <li class="post-author"><i class="uil uil-user"></i><a href="#" class="text-reset"><span>{{ $posts->user->username }}</span></a></li>
-              <li class="post-comments"><i class="uil uil-comment"></i><a href="#" class="text-reset">3<span> Comments</span></a></li>
+              {{-- <li class="post-comments"><i class="uil uil-comment"></i><a href="#" class="text-reset">3<span> Comments</span></a></li>
               <li class="post-likes"><i class="uil uil-heart-alt"></i><a href="#" class="text-reset">3<span> Likes</span></a></li>
-              <li class="post-view"><i class="uil uil-eye"></i><a href="#" class="text-reset">7<span> Views</span></a></li>
+              <li class="post-view"><i class="uil uil-eye"></i><a href="#" class="text-reset">7<span> Views</span></a></li> --}}
             </ul>
             <!-- /.post-meta -->
           </div>

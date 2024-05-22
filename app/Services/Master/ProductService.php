@@ -34,6 +34,7 @@ class ProductService
             'slug' => strtolower(str_replace(' ','-',$request->name)),
             'product_category_id' => $request->productcategory,
             'description' => $request->description,
+            'url' => $request->url,
         ];
     }
 
