@@ -28,6 +28,8 @@ use App\Http\Controllers\Master\ServiceListController;
 use App\Http\Controllers\Master\ServiceListImportController;
 use App\Http\Controllers\Master\PartnerCompanyController;
 use App\Http\Controllers\Master\PartnerCompanyImportController;
+use App\Http\Controllers\Master\PartnerMemberController;
+use App\Http\Controllers\Master\PartnerMemberImportController;
 use App\Http\Controllers\Master\PartnerSchoolController;
 use App\Http\Controllers\Master\PartnerSchoolImportController;
 use App\Http\Controllers\Master\TermController;
@@ -227,6 +229,8 @@ Route::prefix('master')->group(function () {
     Route::apiResource('gallerycategories', GalleryCategoryController::class);
     Route::post('partnercompanys/import', PartnerCompanyImportController::class);
     Route::apiResource('partnercompanys', PartnerCompanyController::class);
+    Route::post('partnermembers/import', PartnerMemberImportController::class);
+    Route::apiResource('partnermembers', PartnerMemberController::class);
     Route::post('partnerschools/import', PartnerSchoolImportController::class);
     Route::apiResource('partnerschools', PartnerSchoolController::class);
     Route::post('faqs/import', FaqImportController::class);

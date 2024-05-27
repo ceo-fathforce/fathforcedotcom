@@ -74,6 +74,14 @@ return [
             'description' => 'Deskripsi',
         ],
     ],
+    'partnermember' => [
+        'partnermember' => 'Daftar Mitra Perusahaan',
+        'partnermembers' => 'Daftar Mitra Perusahaan',
+        'props' => [
+            'name' => 'Nama',
+            'description' => 'Deskripsi',
+        ],
+    ],
     'partnerschool' => [
         'partnerschool' => 'Daftar Mitra Sekolah',
         'partnerschools' => 'Daftar Mitra Sekolah',

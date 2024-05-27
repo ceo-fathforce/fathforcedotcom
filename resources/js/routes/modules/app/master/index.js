@@ -3,6 +3,7 @@ import productcategory from "./productcategory";
 import portfolio from "./portfolio";
 import portfoliocategory from "./portfoliocategory";
 import partnercompany from "./partnercompany";
+import partnermember from "./partnermember";
 import partnerschool from "./partnerschool";
 import gallery from "./gallery";
 import gallerycategory from "./gallerycategory";
@@ -27,6 +28,6 @@ export default [
     component: {
       template: "<router-view></router-view>",
     },
-    children: [...productcategory, ...product, ...portfoliocategory, ...portfolio, ...gallerycategory, ...gallery, ...partnercompany, ...partnerschool, ...faq, ...servicelist, ...term, ...testimony, ...superiority, ...companydata, ...socialmedia],
+    children: [...productcategory, ...product, ...portfoliocategory, ...portfolio, ...gallerycategory, ...gallery, ...partnercompany, ...partnermember, ...partnerschool, ...faq, ...servicelist, ...term, ...testimony, ...superiority, ...companydata, ...socialmedia],
   },
 ];

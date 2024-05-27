@@ -62,6 +62,14 @@ return [
             'description' => 'Description',
         ],
     ],
+    'partnermember' => [
+        'partnermember' => 'List Partner Member',
+        'partnermembers' => 'List Partner Members',
+        'props' => [
+            'name' => 'Name',
+            'description' => 'Description',
+        ],
+    ],
     'partnerschool' => [
         'partnerschool' => 'List Partner School',
         'partnerschools' => 'List Partner Schools',

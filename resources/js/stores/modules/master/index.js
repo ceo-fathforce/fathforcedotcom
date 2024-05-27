@@ -13,6 +13,7 @@ import portfoliocategory from "@stores/modules/master/portfoliocategory";
 import gallery from "@stores/modules/master/gallery";
 import gallerycategory from "@stores/modules/master/gallerycategory";
 import partnercompany from "@stores/modules/master/partnercompany";
+import partnermember from "@stores/modules/master/partnermember";
 import partnerschool from "@stores/modules/master/partnerschool";
 import faq from "@stores/modules/master/faq";
 import term from "@stores/modules/master/term";
@@ -36,6 +37,7 @@ const master = {
     portfolio,
     portfoliocategory,
     partnercompany,
+    partnermember,
     partnerschool,
     gallery,
     gallerycategory,
