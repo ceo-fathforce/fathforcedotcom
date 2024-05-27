@@ -46,10 +46,10 @@
                         <DropdownMenu v-if="landingimage.isEditable || landingimage.isDeletable || landingimage.isReadtable || landingimage.isCreatetable">
                             <DropdownItem landingimage="fas fa-arrow-circle-right" v-if="landingimage.isReadtable" @click="router.push({name: 'LandingimageShow', params: {uuid: landingimage.uuid}})">{{$trans('general.show')}}</DropdownItem>
                             <DropdownItem landingimage="fas fa-edit" v-if="landingimage.isEditable" @click="router.push({name: 'LandingimageEdit', params: {uuid: landingimage.uuid}})">{{$trans('general.edit')}}</DropdownItem>
-                            <DropdownItem landingimage="fas fa-copy" v-if="landingimage.isCreatetable" @click="router.push({name: 'LandingimageDuplicate', params: {uuid: landingimage.uuid}})">{{$trans('general.duplicate')}}</DropdownItem>
+                            <!-- <DropdownItem landingimage="fas fa-copy" v-if="landingimage.isCreatetable" @click="router.push({name: 'LandingimageDuplicate', params: {uuid: landingimage.uuid}})">{{$trans('general.duplicate')}}</DropdownItem>
                             <DropdownItem landingimage="fas fa-trash" v-if="landingimage.isDeletable" @click="emitter.emit('deleteItem', {
                                 uuid: landingimage.uuid
-                            })">{{$trans('general.delete')}}</DropdownItem>
+                            })">{{$trans('general.delete')}}</DropdownItem> -->
                         </DropdownMenu>
                     </DataCell>
                 </DataRow>

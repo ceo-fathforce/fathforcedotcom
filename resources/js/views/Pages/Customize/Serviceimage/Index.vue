@@ -46,10 +46,10 @@
                         <DropdownMenu v-if="serviceimage.isEditable || serviceimage.isDeletable || serviceimage.isReadtable || serviceimage.isCreatetable">
                             <DropdownItem serviceimage="fas fa-arrow-circle-right" v-if="serviceimage.isReadtable" @click="router.push({name: 'ServiceimageShow', params: {uuid: serviceimage.uuid}})">{{$trans('general.show')}}</DropdownItem>
                             <DropdownItem serviceimage="fas fa-edit" v-if="serviceimage.isEditable" @click="router.push({name: 'ServiceimageEdit', params: {uuid: serviceimage.uuid}})">{{$trans('general.edit')}}</DropdownItem>
-                            <DropdownItem serviceimage="fas fa-copy" v-if="serviceimage.isCreatetable" @click="router.push({name: 'ServiceimageDuplicate', params: {uuid: serviceimage.uuid}})">{{$trans('general.duplicate')}}</DropdownItem>
+                            <!-- <DropdownItem serviceimage="fas fa-copy" v-if="serviceimage.isCreatetable" @click="router.push({name: 'ServiceimageDuplicate', params: {uuid: serviceimage.uuid}})">{{$trans('general.duplicate')}}</DropdownItem>
                             <DropdownItem serviceimage="fas fa-trash" v-if="serviceimage.isDeletable" @click="emitter.emit('deleteItem', {
                                 uuid: serviceimage.uuid
-                            })">{{$trans('general.delete')}}</DropdownItem>
+                            })">{{$trans('general.delete')}}</DropdownItem> -->
                         </DropdownMenu>
                     </DataCell>
                 </DataRow>

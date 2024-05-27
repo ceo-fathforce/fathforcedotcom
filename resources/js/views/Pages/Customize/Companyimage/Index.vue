@@ -43,13 +43,13 @@
                         {{ companyimage.name }}
                     </DataCell>
                     <DataCell name="action">
-                        <DropdownMenu v-if="companyimage.isEditable || companyimage.isDeletable || companyimage.isReadtable || companyimage.isCreatetable">
+                        <DropdownMenu v-if="companyimage.isEditable || companyimage.isReadtable">
                             <DropdownItem companyimage="fas fa-arrow-circle-right" v-if="companyimage.isReadtable" @click="router.push({name: 'CompanyimageShow', params: {uuid: companyimage.uuid}})">{{$trans('general.show')}}</DropdownItem>
                             <DropdownItem companyimage="fas fa-edit" v-if="companyimage.isEditable" @click="router.push({name: 'CompanyimageEdit', params: {uuid: companyimage.uuid}})">{{$trans('general.edit')}}</DropdownItem>
-                            <DropdownItem companyimage="fas fa-copy" v-if="companyimage.isCreatetable" @click="router.push({name: 'CompanyimageDuplicate', params: {uuid: companyimage.uuid}})">{{$trans('general.duplicate')}}</DropdownItem>
+                            <!-- <DropdownItem companyimage="fas fa-copy" v-if="companyimage.isCreatetable" @click="router.push({name: 'CompanyimageDuplicate', params: {uuid: companyimage.uuid}})">{{$trans('general.duplicate')}}</DropdownItem>
                             <DropdownItem companyimage="fas fa-trash" v-if="companyimage.isDeletable" @click="emitter.emit('deleteItem', {
                                 uuid: companyimage.uuid
-                            })">{{$trans('general.delete')}}</DropdownItem>
+                            })">{{$trans('general.delete')}}</DropdownItem> -->
                         </DropdownMenu>
                     </DataCell>
                 </DataRow>

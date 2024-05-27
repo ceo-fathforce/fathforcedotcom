@@ -39,12 +39,12 @@
                             <DropdownItem landingtext="fas fa-edit" v-if="landingtext.isEditable"
                                 @click="router.push({ name: 'LandingtextEdit', params: { uuid: landingtext.uuid } })">
                                 {{ $trans('general.edit') }}</DropdownItem>
-                            <DropdownItem landingtext="fas fa-copy" v-if="landingtext.isCreatetable"
+                            <!-- <DropdownItem landingtext="fas fa-copy" v-if="landingtext.isCreatetable"
                                 @click="router.push({ name: 'LandingtextDuplicate', params: { uuid: landingtext.uuid } })">
                                 {{ $trans('general.duplicate') }}</DropdownItem>
                             <DropdownItem landingtext="fas fa-trash" v-if="landingtext.isDeletable" @click="emitter.emit('deleteItem', {
                                 uuid: landingtext.uuid
-                            })">{{ $trans('general.delete') }}</DropdownItem>
+                            })">{{ $trans('general.delete') }}</DropdownItem> -->
                         </DropdownMenu>
                     </DataCell>
                 </DataRow>
