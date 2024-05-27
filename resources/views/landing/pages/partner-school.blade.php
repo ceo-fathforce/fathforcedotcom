@@ -25,9 +25,10 @@
                     <div class="row gx-md-10 gy-10 gy-md-13 isotope">
                         @foreach ($partnerschools as $item)
                             <div class="project item col-md-6 product">
-                                <figure class="lift rounded mb-6"><img
-                                        src="{{ App\Models\Media::getimageweb($item->meta['media_token']) }}"
-                                        alt="{{ $item->name }}" /></a></figure>
+                                <figure class="lift rounded mb-6">
+                                    <img src="{{ App\Models\Media::getimageweb($item->meta['media_token']) }}"
+                                        alt="{{ $item->name }}" style="max-width: 200px; max-height: 200px;" />
+                                </figure>
                                 <div class="project-details d-flex justify-content-center flex-column">
                                     <div class="post-header">
                                         <h3 class="post-title">{{ $item->name }}</h3>
@@ -45,7 +46,7 @@
                 <!-- /.grid -->
             </div>
             <!-- /.container -->
-        </section>
+        </section>        
         <!-- /section -->
     </div>
     @endif
