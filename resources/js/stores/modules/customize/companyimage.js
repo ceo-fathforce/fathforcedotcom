@@ -1,11 +1,11 @@
 import { mutations, actions, getters } from "@stores/global"
 
 const initialState = () => ({
-    initURL: '/app/customize/serviceimages',
+    initURL: '/app/customize/companyimages',
     formErrors: {}
 })
 
-const serviceimage = {
+const companyimage = {
     namespaced: true,
     state: initialState,
     modules: {},
@@ -19,4 +19,4 @@ const serviceimage = {
         ...getters
     }
 }
-export default serviceimage
+export default companyimage
