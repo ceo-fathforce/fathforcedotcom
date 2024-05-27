@@ -10,8 +10,7 @@
                 <div class="row">
                     <div class="col-md-8 col-lg-5 col-xl-6">
                         <h1 class="display-1 mb-3">{{ $generaltextNames[10] }}</h1>
-                        <p class="lead fs-lg">{{ $generaltextNames[11] }}
-                        </p>
+                        <p class="lead fs-lg">{{ $generaltextNames[11] }}</p>
                     </div>
                     <!-- /column -->
                 </div>
@@ -27,8 +26,7 @@
                         <ul>
                             <li><a class="filter-item" data-filter="*">All</a></li>
                             @foreach ($gallerycategories as $category)
-                                <li><a class="filter-item" data-filter=".{{ $category->title }}">{{ $category->title }}</a>
-                                </li>
+                                <li><a class="filter-item" data-filter=".{{ $category->title }}">{{ $category->title }}</a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -37,10 +35,8 @@
                             <div class="col-md-6 mb-4 gallery-item {{ $item->gallerycategory->title }}">
                                 <div class="project item product">
                                     <figure class="lift rounded hover-scale rounded cursor-dark mb-6">
-                                        <a href="{{ App\Models\Media::getimageweb($item->meta['media_token']) }}"
-                                            data-glightbox data-gallery="post">
-                                            <img src="{{ App\Models\Media::getimageweb($item->meta['media_token']) }}"
-                                                alt="{{ $item->name }}" />
+                                        <a href="{{ App\Models\Media::getimageweb($item->meta['media_token']) }}" data-glightbox data-gallery="post">
+                                            <img src="{{ App\Models\Media::getimageweb($item->meta['media_token']) }}" alt="{{ $item->name }}" />
                                         </a>
                                     </figure>
                                     <div class="project-details d-flex justify-content-center flex-column">
@@ -67,17 +63,34 @@
         <!-- /section -->
     </div>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.0.9/glightbox.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.0.9/css/glightbox.min.css" rel="stylesheet" />
 
     <script>
         $(document).ready(function() {
+            var $grid = $('.grid-view').masonry({
+                itemSelector: '.gallery-item',
+                columnWidth: '.gallery-item',
+                percentPosition: true
+            });
+
             $('.filter-item').on('click', function() {
                 var filterValue = $(this).data('filter');
                 if (filterValue === '*') {
-                $('.gallery-item').show();
+                    $('.gallery-item').show();
                 } else {
                     $('.gallery-item').hide();
-                    $(filterValue).show();
+                    $('.' + filterValue).show();
                 }
+                $grid.masonry('layout'); // Rearrange items after filtering
+            });
+
+            const lightbox = GLightbox({
+                selector: '[data-glightbox]',
+                touchNavigation: true,
+                loop: true,
+                autoplayVideos: true
             });
         });
     </script>

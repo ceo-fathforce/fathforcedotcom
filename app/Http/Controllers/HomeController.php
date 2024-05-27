@@ -27,6 +27,7 @@ use App\Models\Master\Testimony;
 use App\Models\Master\Servicelist;
 use App\Models\Master\Superiority;
 use App\Models\Master\CompanyData;
+use App\Models\Master\PartnerMember;
 use App\Models\Master\Socialmedia;
 use Illuminate\Http\Request;
 
@@ -257,6 +258,12 @@ class HomeController extends Controller
         $partnercompanys = PartnerCompany::orderBy('id', 'DESC')->paginate(6);
         $generaltextNames = Generaltext::orderBy('created_at')->pluck('name')->take(50);
         return view('landing.pages.partner-company ', compact('partnercompanys', 'generaltextNames'));
+    }
+    public function partnermember(Request $request)
+    {
+        $partnermembers = PartnerMember::orderBy('id', 'DESC')->paginate(6);
+        $generaltextNames = Generaltext::orderBy('created_at')->pluck('name')->take(50);
+        return view('landing.pages.partner-member ', compact('partnermembers', 'generaltextNames'));
     }
     public function partnerschool(Request $request)
     {

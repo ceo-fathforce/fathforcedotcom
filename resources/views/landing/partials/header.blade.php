@@ -42,6 +42,8 @@
                                 </li>
                                 <li class="nav-item"><a class="dropdown-item" href="{{ route('/partnercompany') }}">Company Partner</a>
                                 </li>
+                                <li class="nav-item"><a class="dropdown-item" href="{{ route('/partnermember') }}">Member Partner</a>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('/posts') }}">Blog</a></li>
