@@ -102,7 +102,7 @@ class HomeController extends Controller
             $productsQuery->where('product_category_id', $selectedProductcategoryId);
         }
 
-        $products = $productsQuery->paginate(6);
+        $products = $productsQuery->paginate(20);
 
         return view('landing.pages.product', compact('products', 'productcategories', 'selectedProductcategoryId', 'generaltextNames'));
     }
@@ -151,7 +151,7 @@ class HomeController extends Controller
             $portfoliosQuery->where('portfolio_category_id', $selectedPortfoliocategoryId);
         }
 
-        $portfolios = $portfoliosQuery->paginate(6);
+        $portfolios = $portfoliosQuery->paginate(20);
 
         
 
@@ -255,19 +255,19 @@ class HomeController extends Controller
     }
     public function partnercompany(Request $request)
     {
-        $partnercompanys = PartnerCompany::orderBy('id', 'ASC')->paginate();
+        $partnercompanys = PartnerCompany::orderBy('id', 'ASC')->paginate(30);
         $generaltextNames = Generaltext::orderBy('created_at')->pluck('name')->take(50);
         return view('landing.pages.partner-company ', compact('partnercompanys', 'generaltextNames'));
     }
     public function partnermember(Request $request)
     {
-        $partnermembers = PartnerMember::orderBy('id', 'ASC')->paginate();
+        $partnermembers = PartnerMember::orderBy('id', 'ASC')->paginate(30);
         $generaltextNames = Generaltext::orderBy('created_at')->pluck('name')->take(50);
         return view('landing.pages.partner-member ', compact('partnermembers', 'generaltextNames'));
     }
     public function partnerschool(Request $request)
     {
-        $partnerschools = PartnerSchool::orderBy('id', 'ASC')->paginate();
+        $partnerschools = PartnerSchool::orderBy('id', 'ASC')->paginate(30);
         $generaltextNames = Generaltext::orderBy('created_at')->pluck('name')->take(50);
         return view('landing.pages.partner-school', compact('partnerschools', 'generaltextNames'));
     }
