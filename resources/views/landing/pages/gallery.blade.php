@@ -81,7 +81,7 @@
                     $('.gallery-item').show();
                 } else {
                     $('.gallery-item').hide();
-                    $('.' + filterValue).show();
+                    $(filterValue).show();
                 }
                 $grid.masonry('layout'); // Rearrange items after filtering
             });

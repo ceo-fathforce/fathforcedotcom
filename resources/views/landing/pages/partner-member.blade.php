@@ -27,7 +27,7 @@
                             <div class="project item col-md-6 product">
                                 <figure class="lift rounded mb-6">
                                     <img src="{{ App\Models\Media::getimageweb($item->meta['media_token']) }}"
-                                        alt="{{ $item->name }}" style="max-width: 200px; max-height: 200px;" />
+                                        alt="{{ $item->name }}" style="max-width: 150px; max-height: 150px;" />
                                 </figure>
                                 <div class="project-details d-flex justify-content-center flex-column">
                                     <div class="post-header">

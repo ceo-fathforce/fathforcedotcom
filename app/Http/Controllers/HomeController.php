@@ -255,19 +255,19 @@ class HomeController extends Controller
     }
     public function partnercompany(Request $request)
     {
-        $partnercompanys = PartnerCompany::orderBy('id', 'DESC')->paginate(6);
+        $partnercompanys = PartnerCompany::orderBy('id', 'ASC')->paginate();
         $generaltextNames = Generaltext::orderBy('created_at')->pluck('name')->take(50);
         return view('landing.pages.partner-company ', compact('partnercompanys', 'generaltextNames'));
     }
     public function partnermember(Request $request)
     {
-        $partnermembers = PartnerMember::orderBy('id', 'DESC')->paginate(6);
+        $partnermembers = PartnerMember::orderBy('id', 'ASC')->paginate();
         $generaltextNames = Generaltext::orderBy('created_at')->pluck('name')->take(50);
         return view('landing.pages.partner-member ', compact('partnermembers', 'generaltextNames'));
     }
     public function partnerschool(Request $request)
     {
-        $partnerschools = PartnerSchool::orderBy('id', 'DESC')->paginate(6);
+        $partnerschools = PartnerSchool::orderBy('id', 'ASC')->paginate();
         $generaltextNames = Generaltext::orderBy('created_at')->pluck('name')->take(50);
         return view('landing.pages.partner-school', compact('partnerschools', 'generaltextNames'));
     }

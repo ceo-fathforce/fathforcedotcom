@@ -203,7 +203,7 @@
     <div class="container py-18 text-center">
       <div class="row">
         <div class="col-lg-10 col-xl-10 col-xxl-8 mx-auto">
-          <a href="https://youtu.be/Fb3EXve-Z_k?si=tlJnDzPNkBMeZK2j" class="btn btn-circle btn-white btn-play ripple mx-auto mb-5" data-glightbox><i class="icn-caret-right"></i></a>
+          <a href="{{ $servicetextNames[35] }}" class="btn btn-circle btn-white btn-play ripple mx-auto mb-5" data-glightbox><i class="icn-caret-right"></i></a>
           <h2 class="display-4 px-lg-10 px-xl-13 px-xxl-10 mb-10 text-white">{{ $servicetextNames[28] }}</h2>
         </div>
         <!--/column -->
