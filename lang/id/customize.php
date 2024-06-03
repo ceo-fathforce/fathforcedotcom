@@ -43,5 +43,11 @@ return [
         'props' => [ 
             'name' => 'Text', 
         ], 
-    ],  
+    ], 
+    'generalimage' => [ 
+        'generalimage' => 'Gambar General Page', 
+        'props' => [ 
+            'name' => 'Nama', 
+        ], 
+    ], 
 ];

@@ -29,9 +29,10 @@
                         <div class="col">
                             <img class="img-fluid px-md-3 px-lg-0 px-xl-2 px-xxl-5"
                                 src="{{ App\Models\Media::getimageweb($item->meta['media_token']) }}"
-                                alt="{{ $item->name }}" />
+                                alt="{{ $item->name }}" style="max-width: 200px; max-height: 200px; margin: 20px;" />
                         </div>
                     @endforeach
+                    <div class="text-center"><a href="{{ route("/partnercompany") }}" class="btn btn-primary" style="margin-top: 50px;">{{ $landingtextNames[32] }}</a></div>
                 </div>
                 <!-- /.row -->
             </div>

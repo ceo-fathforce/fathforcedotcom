@@ -24,41 +24,43 @@
                         <ul>
                             <li><a class="filter-item" data-filter="*">All</a></li>
                             @foreach ($productcategories as $category)
-                                <li><a class="filter-item" data-filter=".{{ $category->title }}">{{ $category->title }}</a>
-                                </li>
-                            @endforeach
+                                @php
+                                    $categoryTitle = str_replace('-', ' ', $category->title);
+                                    $categoryClass = str_replace(' ', '-', $category->title);
+                                @endphp
+                           <li><a class="filter-item" data-filter=".{{ $categoryClass }}">{{ $categoryTitle }}</a></li>
+                           @endforeach
                         </ul>
                     </div>
                     <div class="row gx-md-10 gy-10 gy-md-13">
                         @foreach ($products as $item)
-                            <div class="col-md-6 mb-4 product-item {{ $item->productcategory->title }}">
-                                <div class="project item product">
-                                    <figure class="lift rounded mb-6">
-                                        <!-- Tambahkan tautan ke halaman detail -->
-                                        <a href="{{ url('products/detail/' . $item->uuid) }}">
-                                            <img src="{{ App\Models\Media::getimageweb($item->meta['media_token']) }}"
-                                                alt="{{ $item->name }}" />
-                                        </a>
-                                    </figure>
-                                    <div class="project-details d-flex justify-content-center flex-column">
-                                        <div class="product-header">
-                                            <div class="product-category text-line mb-2 text-purple">
-                                                {{ $item->productcategory['title'] }}
-                                            </div>
-                                            <!-- Tambahkan tautan ke halaman detail -->
-                                            <h3 class="product-title">
-                                                <a href="{{ url('products/detail/' . $item->uuid) }}">
-                                                    {{ $item->name }}
-                                                </a>
-                                            </h3>
-                                        </div>
-                                        <!-- /.product-header -->
-                                    </div>
-                                    <!-- /.project-details -->
-                                </div>
-                                <!-- /.project -->
-                            </div>
-                        @endforeach
+    @php
+        $productCategoryClass = str_replace(' ', '-', $item->productcategory->title);
+    @endphp
+    <div class="col-md-6 mb-4 product-item {{ $productCategoryClass }}">
+        <div class="project item product">
+            <figure class="lift rounded mb-6">
+                <a href="{{ url('products/detail/' . $item->uuid) }}">
+                    <img src="{{ App\Models\Media::getimageweb($item->meta['media_token']) }}"
+                        alt="{{ $item->name }}" />
+                </a>
+            </figure>
+            <div class="project-details d-flex justify-content-center flex-column">
+                <div class="product-header">
+                    <div class="product-category text-line mb-2 text-purple">
+                        {{ str_replace('-', ' ', $item->productcategory->title) }}
+                    </div>
+                    <h3 class="product-title">
+                        <a href="{{ url('products/detail/' . $item->uuid) }}">
+                            {{ $item->name }}
+                        </a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+@endforeach
+
                     </div>
                     <nav class="d-flex" aria-label="pagination">
                         <ul class="pagination">

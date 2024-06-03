@@ -51,13 +51,13 @@ class HomeController extends Controller
         $gallerys = Gallery::with('gallerycategory')->orderBy('id')->limit(4)->get();
         $projects = Project::orderBy('id', 'DESC')->limit(4)->get();
         $faqs = Faq::orderBy('id', 'DESC')->limit(4)->get();
-        $partnercompanys = PartnerCompany::orderBy('id', 'DESC')->limit(4)->get();
+        $partnercompanys = PartnerCompany::orderBy('id', 'ASC')->limit(8)->get();
         $partnerschools = PartnerSchool::orderBy('id', 'DESC')->limit(4)->get();
         $terms = Term::orderBy('id', 'DESC')->limit(4)->get()->reverse();
         $testimonys = Testimony::orderBy('id', 'DESC')->limit(4)->get()->reverse();
         $servicelists = Servicelist::orderBy('id', 'DESC')->limit(9)->get()->reverse();
         $superioritys = Superiority::orderBy('id', 'DESC')->limit(4)->get()->reverse();
-        $landingtextNames = Landingtext::orderBy('created_at')->pluck('name')->take(32);
+        $landingtextNames = Landingtext::orderBy('created_at')->pluck('name')->take(33);
         $landingImages = Landingimage::orderBy('created_at', 'asc')->take(20)->get();
         $companytextNames = Companytext::orderBy('created_at')->pluck('name')->take(49);
         $companyImages = Companyimage::orderBy('created_at', 'asc')->take(20)->get();

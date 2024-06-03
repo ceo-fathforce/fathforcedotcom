@@ -5,6 +5,7 @@ import companytext from "./companytext";
 import serviceimage from "./serviceimage";
 import servicetext from "./servicetext";
 import generaltext from "./generaltext";
+import generalimage from "./generalimage";
 
 export default [
   {
@@ -19,6 +20,6 @@ export default [
     component: {
       template: "<router-view></router-view>",
     },
-    children: [...landingtext, ...landingimage,...companytext, ...companyimage, ...servicetext, ...serviceimage, ...generaltext],
+    children: [...landingtext, ...landingimage,...companytext, ...companyimage, ...servicetext, ...serviceimage, ...generaltext, ...generalimage],
   },
 ];

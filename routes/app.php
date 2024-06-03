@@ -73,6 +73,8 @@ use App\Http\Controllers\Customize\CompanytextController;
 use App\Http\Controllers\Customize\CompanytextImportController;
 use App\Http\Controllers\Customize\CompanyimageController;
 use App\Http\Controllers\Customize\CompanyimageImportController;
+use App\Http\Controllers\Customize\GeneralimageController;
+use App\Http\Controllers\Customize\GeneralimageImportController;
 use App\Http\Controllers\Customize\GeneraltextController;
 use App\Http\Controllers\Customize\GeneraltextImportController;
 use App\Http\Controllers\Customize\ServiceimageController;
@@ -257,6 +259,8 @@ Route::prefix('customize')->group(function () {
     Route::apiResource('companytexts', CompanytextController::class);
     Route::post('companyimages/import', CompanyimageImportController::class);
     Route::apiResource('companyimages', CompanyimageController::class);
+    Route::post('generalimages/import', GeneralimageImportController::class);
+    Route::apiResource('generalimages', GeneralimageController::class);
     Route::post('generaltexts/import', GeneraltextImportController::class);
     Route::apiResource('generaltexts', GeneraltextController::class);;
 });

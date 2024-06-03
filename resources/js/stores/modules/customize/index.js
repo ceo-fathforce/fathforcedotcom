@@ -13,6 +13,7 @@ import companyimage from "@stores/modules/customize/companyimage";
 import servicetext from "@stores/modules/customize/servicetext";
 import serviceimage from "@stores/modules/customize/serviceimage";
 import generaltext from "@stores/modules/customize/generaltext";
+import generalimage from "@stores/modules/customize/generalimage";
 
 const initialState = () => ({
   initURL: "/app/customize",
@@ -30,6 +31,7 @@ const customize = {
     servicetext,
     serviceimage,
     generaltext,
+    generalimage,
   },
   mutations: {
     ...mutations,

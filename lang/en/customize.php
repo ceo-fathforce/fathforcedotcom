@@ -44,4 +44,10 @@ return [
             'name' => 'Text', 
         ], 
     ], 
+    'generalimage' => [ 
+        'generalimage' => 'Image General Page', 
+        'props' => [ 
+            'name' => 'Name', 
+        ], 
+    ], 
 ];
