@@ -7,7 +7,7 @@
         content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
     <meta name="author" content="elemis">
     <title>Fathforce - PT. Fath Synergy Group</title>
-    <link rel="shortcut icon" href="/landing/assets/img/fathlogo.png">
+    <link rel="shortcut icon" href="/landing/assets/img/logofath.png">
     <link rel="stylesheet" href="/landing/assets/css/plugins.css">
     <link rel="stylesheet" href="/landing/assets/css/style.css">
     <link rel="stylesheet" href="/landing/assets/css/colors/sky.css">
